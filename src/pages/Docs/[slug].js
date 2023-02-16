@@ -9,7 +9,7 @@ import Loader from "@/components/Loader"
 import Search from "@/components/Search"
 import Card from "@/components/Card"
 import Footer from "@/components/Footer"
-import Home from "@/pages/Home"
+import Home from "@/pages"
 
 const address = "/api/docs"
 const fetcher = (url, docs) =>

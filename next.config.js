@@ -6,9 +6,6 @@ module.exports = {
 	images: {
 		disableStaticImages: true
 	},
-	exportPathMap: async () => ({
-		"/": { page: "/Home" }
-	}),
 	async rewrites() {
 		return [
 			{
