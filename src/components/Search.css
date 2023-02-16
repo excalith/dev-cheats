@@ -1,0 +1,61 @@
+.search-row {
+	background-color: var(--cardBackground);
+	border-radius: 5px;
+	padding: 0;
+	margin: 15px 0 25px 0;
+	z-index: 999;
+	box-shadow: var(--shadowBackground) 0px 5px 15px;
+	height: 65px;
+	transition: background-color 0.15s ease-in-out;
+}
+
+.search-bar {
+	border: 0px;
+	padding: 10px;
+	font: normal 24px/1.6 system-ui, sans-serif;
+	text-align: center;
+}
+
+.search-complexity {
+	position: absolute;
+	display: table;
+	top: 6px;
+	right: 6px;
+	height: 52px;
+	width: 150px;
+	border: 0px;
+	border-radius: 5px;
+	color: var(--text-color);
+	font-size: 18px;
+	transition: color 0.15s ease-in-out;
+}
+
+.search-complexity,
+.search-complexity:active,
+.search-complexity:focus {
+	background-color: transparent;
+	outline: none !important;
+	appearance: none;
+	box-shadow: none;
+	background-color: var(--background);
+	transition: background-color 0.15s ease-in-out;
+}
+
+.search-bar,
+.search-bar:active,
+.search-bar:focus {
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	height: 52px;
+	width: calc(100% - 170px);
+
+	color: var(--white);
+	background-color: transparent;
+	outline: none !important;
+	appearance: none;
+	box-shadow: none;
+	background-color: var(--background);
+	transition: background-color 0.15s ease-in-out;
+	transition: color 0.15s ease-in-out;
+}

@@ -1,0 +1,21 @@
+.alert {
+	background-color: transparent;
+	color: var(--text-color);
+	max-width: 420px;
+}
+
+.alert span {
+	display: inline-block;
+}
+
+.alert-success {
+	border-color: var(--green);
+}
+
+.alert-warning {
+	border-color: var(--orange);
+}
+
+.alert-danger {
+	border-color: var(--red);
+}

@@ -1,0 +1,67 @@
+{
+	"meta": {
+		"title": "UNIX",
+		"author": "Can Cellek"
+	},
+	"complexity": ["Basic", "Normal", "Advanced"],
+	"categories": [
+		{
+			"name": "List",
+			"color": "green",
+			"commands": [
+				{
+					"name": "ls",
+					"description": "Lists all files and directories in the current working directory",
+					"keywords": "list",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "ls -R",
+							"description": "Lists files in sub-directories as well"
+						},
+						{
+							"complexity": 1,
+							"code": "ls -a",
+							"description": "Lists hidden files as well"
+						},
+						{
+							"complexity": 2,
+							"code": "ls -la",
+							"description": "Lists files and directories with detailed information like permissions,size, owner, etc."
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Directory",
+			"color": "orange",
+			"commands": [
+				{
+					"name": "cd",
+					"description": "Changes directory",
+					"keywords": "changes add",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "cd",
+							"description": "Changes directory to HOME"
+						},
+						{
+							"complexity": 0,
+							"code": "cd [FOLDER]",
+							"description": "Changes directory to [FOLDER]"
+						},
+						{
+							"complexity": 0,
+							"code": "cd ..",
+							"description": "Changes directory to parent directory"
+						}
+					]
+				}
+			]
+		}
+	]
+}

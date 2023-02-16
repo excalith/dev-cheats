@@ -1,0 +1,13 @@
+.logo {
+	color: var(--text-color);
+	user-select: none;
+	transition: color 0.15s ease-in-out;
+}
+
+.logo span {
+	background-color: var(--red);
+	color: var(--white);
+    padding: 5px;
+	border-radius: 0.325rem;
+	margin-right: 5px;
+}

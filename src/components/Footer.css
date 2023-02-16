@@ -1,0 +1,13 @@
+/* .footer {
+	position: relative;
+	bottom: 0;
+} */
+
+.footer p {
+	color: var(--codeDescription);
+	text-align: center;
+}
+
+.footer p span {
+	color: var(--red);
+}

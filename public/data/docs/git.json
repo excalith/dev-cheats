@@ -1,0 +1,800 @@
+{
+	"meta": {
+		"title": "Git",
+		"author": "Can Cellek"
+	},
+	"complexity": ["Basic", "Normal", "Advanced"],
+	"categories": [
+		{
+			"name": "Create",
+			"color": "green",
+			"commands": [
+				{
+					"name": "init",
+					"description": "Create an empty Git repository or reinitialize an existing one",
+					"url": "https://git-scm.com/docs/git-init",
+					"keywords": "create init start",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git init",
+							"description": "Create an empty Git repository or reinitialize an existing one"
+						},
+						{
+							"complexity": 2,
+							"code": "git init --template=[template-directory]",
+							"description": "Create Git repository with template directory contents"
+						}
+					]
+				},
+				{
+					"name": "clone",
+					"description": "Creates a local copy of a project that already exists remotely",
+					"url": "https://git-scm.com/docs/git-clone",
+					"keywords": "create clone new",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git clone ssh://user@domain.com/repo.git",
+							"description": "Clone target repository"
+						},
+						{
+							"complexity": 1,
+							"code": "git clone -b [branch-name] ssh://user@domain.com/repo.git",
+							"description": "Clone a repository with branch-name checked out"
+						},
+						{
+							"complexity": 2,
+							"code": "git clone ssh://user@domain.com/repo.git --depth=[number]",
+							"description": "Clones target repository with history truncated to depth"
+						}
+					]
+				},
+				{
+					"name": "submodule",
+					"description": "Initialize, update or inspect submodules",
+					"url": "https://git-scm.com/docs/git-submodule",
+					"keywords": "create submodule new",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git submodule add https://github.com/excalith/dev-cheats",
+							"description": "Adds url as submodule"
+						},
+						{
+							"complexity": 1,
+							"code": "git submodule init",
+							"description": "Initializes local config file"
+						},
+						{
+							"complexity": 1,
+							"code": "git submodule update",
+							"description": "Fetch all data from submodule"
+						},
+						{
+							"complexity": 2,
+							"code": "git submodule update --init --recursive",
+							"description": "Updates local submodule"
+						},
+						{
+							"complexity": 2,
+							"code": "git submodule sync --recursive",
+							"description": "If submodule cannot be reached somehow, sync command will help you resync your config"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Changes",
+			"color": "orange",
+			"commands": [
+				{
+					"name": "add",
+					"description": "Stages changes in the working tree",
+					"url": "https://git-scm.com/docs/git-add",
+					"keywords": "changes add",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git add [source]",
+							"description": "Adds given file to stage area"
+						},
+						{
+							"complexity": 0,
+							"code": "git add folder/*",
+							"description": "Adds all files within given folder"
+						},
+						{
+							"complexity": 0,
+							"code": "git add *.extension",
+							"description": "Adds all extension files to stage area"
+						},
+						{
+							"complexity": 2,
+							"code": "git add --patch [source]",
+							"description": "Interactively choose hunks of patch between the index and the work tree and add them to the index"
+						}
+					]
+				},
+				{
+					"name": "status",
+					"description": "Shows the status of changes as untracked, modified, or staged",
+					"url": "https://git-scm.com/docs/git-status",
+					"keywords": "changes status",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git status",
+							"description": "Changed files on your working directory"
+						},
+						{
+							"complexity": 1,
+							"code": "git status -s",
+							"description": "Give the output in the short-format"
+						},
+						{
+							"complexity": 1,
+							"code": "git status -b",
+							"description": "Show the branch and tracking info even in short-format"
+						}
+					]
+				},
+				{
+					"name": "diff",
+					"description": "Shows file differences not yet staged",
+					"url": "https://git-scm.com/docs/git-diff",
+					"keywords": "changes diff",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git diff",
+							"description": "Show changes all changes between the working tree and the index"
+						},
+						{
+							"complexity": 1,
+							"code": "git diff [source]",
+							"description": "Show changes to a file between the working tree and the index"
+						}
+					]
+				},
+				{
+					"name": "commit",
+					"description": "Saves the snapshot to the project history",
+					"url": "https://git-scm.com/docs/git-commit",
+					"keywords": "changes commit",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git commit -m [message]",
+							"description": "Use the given message as the commit message. If multiple -m usage are given, their values are concatenated as separate paragraphs"
+						},
+						{
+							"complexity": 1,
+							"code": "git commit --all",
+							"description": "Tell the command to automatically stage files that have been modified and deleted, but new files you have not told Git about are not affected"
+						},
+						{
+							"complexity": 1,
+							"code": "git commit --amend",
+							"description": "Updates the last commit without creating a new commit"
+						},
+						{
+							"complexity": 2,
+							"code": "git commit --squash",
+							"description": "Create a single commit on top of the current branch"
+						}
+					]
+				},
+				{
+					"name": "stash",
+					"description": "Stash and restore incomplete changes",
+					"url": "https://git-scm.com/docs/git-stash",
+					"keywords": "changes stash",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git stash list",
+							"description": "Shows all your stashes"
+						},
+						{
+							"complexity": 1,
+							"code": "git stash save [stash message]",
+							"description": "Saves your local modifications to a new stash entry"
+						},
+						{
+							"complexity": 1,
+							"code": "git stash apply stash@{index}",
+							"description": "Applies the stash in index"
+						},
+						{
+							"complexity": 1,
+							"code": "git stash pop stash@{index}",
+							"description": "Applies the stash in index and removes it from stash list"
+						},
+						{
+							"complexity": 1,
+							"code": "git stash drop stash@{index}",
+							"description": "Removes the index from stash list without applying"
+						},
+						{
+							"complexity": 1,
+							"code": "git stash clear",
+							"description": "Clears the stash list"
+						}
+					]
+				},
+				{
+					"name": "rm",
+					"description": "Remove files from the index",
+					"url": "https://git-scm.com/docs/git-rm",
+					"keywords": "changes remove rm",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git rm [source]",
+							"description": "Removes file from stage area"
+						}
+					]
+				},
+				{
+					"name": "mv",
+					"description": "Move or rename a file or a directory",
+					"url": "https://git-scm.com/docs/git-mv",
+					"keywords": "changes move mv",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git mv [source] [destination]",
+							"description": "Moves or renames source"
+						},
+						{
+							"complexity": 1,
+							"code": "git mv -f [source] [destination]",
+							"description": "Forces to move or rename the source even if it exists in destination"
+						}
+					]
+				},
+				{
+					"name": "tag",
+					"description": "Marks the current commit with a tag",
+					"url": "https://git-scm.com/docs/git-tag",
+					"keywords": "changes tag",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git tag",
+							"description": "Lists all tags"
+						},
+						{
+							"complexity": 1,
+							"code": "git tag [tag-name]",
+							"description": "Marks the current commit with a [tag-name]"
+						},
+						{
+							"complexity": 1,
+							"code": "git tag [tag-name] [commit-hash]",
+							"description": "Marks the [commit-hash] commit with a [tag-name]"
+						},
+						{
+							"complexity": 1,
+							"code": "git tag -a [tag-name]",
+							"description": "Marks the current commit with an annotated [tag-name] such as v1.4"
+						},
+						{
+							"complexity": 1,
+							"code": "git tag --delete [tag-name]",
+							"description": "Delete existing tags with the given [tag-name]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Branch",
+			"color": "orange",
+			"commands": [
+				{
+					"name": "branch",
+					"description": "List, rename, create, or delete branches",
+					"url": "https://git-scm.com/docs/git-branch",
+					"keywords": "branch",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git branch",
+							"description": "Lists tracked branches"
+						},
+						{
+							"complexity": 0,
+							"code": "git branch -a",
+							"description": "List both remote-tracking branches and local branches"
+						},
+						{
+							"complexity": 1,
+							"code": "git branch [branch-name]",
+							"description": "Creates a new branch from HEAD called [branch-name]"
+						},
+						{
+							"complexity": 1,
+							"code": "git branch -m [branch-name]",
+							"description": "Rename current branch to [branch-name]"
+						},
+						{
+							"complexity": 1,
+							"code": "git branch -d [branch-name]",
+							"description": "Delete [branch-name]. The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with --track or --set-upstream"
+						}
+					]
+				},
+				{
+					"name": "switch",
+					"description": "Switch or create branches",
+					"url": "https://git-scm.com/docs/git-switch",
+					"keywords": "branch switch",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git switch [branch-name]",
+							"description": "Switches to a branch called [branch-name]"
+						},
+						{
+							"complexity": 0,
+							"code": "git switch -c [branch-name]",
+							"description": "Creates and switches to a new branch from HEAD called [branch-name]"
+						},
+						{
+							"complexity": 1,
+							"code": "git switch -c [branch-name] [start-point]",
+							"description": "Creates and switches to a new branch from [start-point] called [branch-name]"
+						},
+						{
+							"complexity": 2,
+							"code": "git switch --orphan",
+							"description": "Creates a new orphan branch called [branch-name] and removes all tracked files"
+						}
+					]
+				},
+				{
+					"name": "checkout",
+					"description": "Switch branches or restore working tree files",
+					"url": "https://git-scm.com/docs/git-checkout",
+					"keywords": "branch checkout",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git checkout [branch-name]",
+							"description": "Switch to [branch-name] or restore working tree files"
+						},
+						{
+							"complexity": 1,
+							"code": "git checkout -b [branch-name]",
+							"description": "Create and switch to [branch-name] or restore working tree files"
+						},
+						{
+							"complexity": 0,
+							"code": "git checkout --track [origin/branch-name]",
+							"description": "Checkout and track a remote branch"
+						},
+						{
+							"complexity": 1,
+							"code": "git checkout .",
+							"description": "Discard all tracked local changes in HEAD"
+						},
+						{
+							"complexity": 1,
+							"code": "git checkout HEAD [source]",
+							"description": "Resets tracked [source] file/folder"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Update",
+			"color": "cyan",
+			"commands": [
+				{
+					"name": "fetch",
+					"description": "Downloads all history from the remote repository",
+					"url": "https://git-scm.com/docs/git-fetch",
+					"keywords": "update fetch",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git fetch --all",
+							"description": "Fetch all remotes"
+						},
+						{
+							"complexity": 1,
+							"code": "git fetch --prune",
+							"description": "Before fetching, remove any remote-tracking references that no longer exist on the remote"
+						}
+					]
+				},
+				{
+					"name": "pull",
+					"description": "Updates the local branch from its remote counterpart",
+					"url": "https://git-scm.com/docs/git-pull",
+					"keywords": "update pull",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git pull",
+							"description": "Fetch from and integrate with another repository or a local branch"
+						}
+					]
+				},
+				{
+					"name": "push",
+					"description": "Uploads all local branch commits to its remote counterpart",
+					"url": "https://git-scm.com/docs/git-push",
+					"keywords": "update push",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git push",
+							"description": "Update remote refs along with associated objects"
+						},
+						{
+							"complexity": 2,
+							"code": "git push --force",
+							"description": "Overwrite remote refs with your local branch"
+						},
+						{
+							"complexity": 2,
+							"code": "git push --force-with-lease",
+							"description": "Prevents overwriting remote refs with your local branch"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Merge",
+			"color": "cherry",
+			"commands": [
+				{
+					"name": "merge",
+					"description": "Combines the specified branch’s history into the current branch",
+					"url": "https://git-scm.com/docs/git-merge",
+					"keywords": "merge",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git merge [branch-name]",
+							"description": "Merges a branch to your current HEAD"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Patch",
+			"color": "cherry",
+			"commands": [
+				{
+					"name": "rebase",
+					"description": "Rebase your current HEAD onto target branch",
+					"url": "https://git-scm.com/docs/git-rebase",
+					"keywords": "patch rebase",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git rebase [branch-name]",
+							"description": "Rebase your current HEAD onto branch-name"
+						},
+						{
+							"complexity": 1,
+							"code": "git rebase --interactive",
+							"description": "Makes a list of the commits which are about to be rebased. User can edit that list before rebasing."
+						},
+						{
+							"complexity": 1,
+							"code": "git rebase --continue",
+							"description": "Continue a rebase after resolving conflicts"
+						},
+						{
+							"complexity": 1,
+							"code": "git rebase --abort",
+							"description": "Abort a rebase"
+						}
+					]
+				},
+				{
+					"name": "cherry-pick",
+					"description": "Apply the changes from a different commit to your current HEAD",
+					"url": "https://git-scm.com/docs/git-pick",
+					"keywords": "patch cherry-pick",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git cherry-pick [commit]",
+							"description": "Pick and apply changes from commit hash to your current HEAD"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Undo",
+			"color": "red",
+			"commands": [
+				{
+					"name": "reset",
+					"description": "Undoes all commits after [commit], preserving changes locally",
+					"url": "https://git-scm.com/docs/git-reset",
+					"keywords": "reset undo",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git reset",
+							"description": "Resets the index entries for all paths to their state"
+						},
+						{
+							"complexity": 1,
+							"code": "git reset --soft",
+							"description": "Does not touch the index file or the working tree at all"
+						},
+						{
+							"complexity": 1,
+							"code": "git reset --mixed",
+							"description": "Resets the index but not the working tree and reports what has not been updated"
+						},
+						{
+							"complexity": 1,
+							"code": "git reset --hard",
+							"description": "Resets the index and working tree. Any changes to tracked files in the working tree since commit are discarded"
+						}
+					]
+				},
+				{
+					"name": "revert",
+					"description": "Removes all changes made by commits from repository",
+					"url": "https://git-scm.com/docs/git-revert",
+					"keywords": "reset undo revert",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git revert HEAD",
+							"description": "Revert to the latest commit"
+						},
+						{
+							"complexity": 1,
+							"code": "git revert [commit-hash]",
+							"description": "Revert to the [commit-hash] commit"
+						},
+						{
+							"complexity": 1,
+							"code": "git revert -n [commit-hash]",
+							"description": "Revert to the [commit-hash] commit but do not commit"
+						}
+					]
+				},
+				{
+					"name": "clean",
+					"description": "Shows untracked files about to be removed",
+					"url": "https://git-scm.com/docs/git-clean",
+					"keywords": "reset undo clean",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "git clean -n",
+							"description": "Shows untracked files about to be removed"
+						},
+						{
+							"complexity": 1,
+							"code": "git clean -f",
+							"description": "Removes all untracked files"
+						},
+						{
+							"complexity": 1,
+							"code": "git clean -x",
+							"description": "Removes all ignored files"
+						},
+						{
+							"complexity": 1,
+							"code": "git clean -i",
+							"description": "Runs clean command with interactive menu"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "History",
+			"color": "blue",
+			"commands": [
+				{
+					"name": "log",
+					"description": "Lists version history for the current branch",
+					"url": "https://git-scm.com/docs/git-log",
+					"keywords": "history log",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "git log",
+							"description": "Show all commits"
+						},
+						{
+							"complexity": 0,
+							"code": "git log --graph",
+							"description": "Shows all commits as graph"
+						},
+						{
+							"complexity": 1,
+							"code": "git log -p [source]",
+							"description": "Show changes to file"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Administration",
+			"color": "orange",
+			"commands": [
+				{
+					"name": "config",
+					"description": "Get and set repository or global usage",
+					"url": "https://git-scm.com/docs/git-config",
+					"keywords": "administration config",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "git config -e",
+							"description": "Edit repository config file"
+						},
+						{
+							"complexity": 2,
+							"code": "git config --global -e",
+							"description": "Edit global config file"
+						},
+						{
+							"complexity": 2,
+							"code": "git config --global user.name 'Your Name'",
+							"description": "Define your user name in global settings"
+						},
+						{
+							"complexity": 2,
+							"code": "git config --global user.email you@mail.com",
+							"description": "Define your mail in global settings"
+						}
+					]
+				},
+				{
+					"name": "gc",
+					"description": "Cleanup unnecessary files and optimize the local repository",
+					"url": "https://git-scm.com/docs/git-gc",
+					"keywords": "administration gc garbage collection",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "git gc",
+							"description": "Runs a garbage collection for your local repository"
+						},
+						{
+							"complexity": 2,
+							"code": "git gc --aggressive",
+							"description": "Runs gc more aggressively to optimize your local repository"
+						}
+					]
+				},
+				{
+					"name": "prune",
+					"description": "Prune all unreachable objects from the object database",
+					"url": "https://git-scm.com/docs/git-prune",
+					"keywords": "administration prune",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "git prune",
+							"description": "Removes objects that are no longer pointed to any object in reachable branch"
+						},
+						{
+							"complexity": 2,
+							"code": "git prune -n",
+							"description": "Do not remove anything; just report what it would remove"
+						},
+						{
+							"complexity": 2,
+							"code": "git prune --progress",
+							"description": "Shows prune progress"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Debug",
+			"color": "cherry",
+			"commands": [
+				{
+					"name": "bisect",
+					"description": "Use binary search to find the commit that introduced a bug",
+					"url": "https://git-scm.com/docs/git-bisect",
+					"keywords": "debug bisect",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "git bisect start",
+							"description": "Start up the git bisect wizard"
+						},
+						{
+							"complexity": 2,
+							"code": "git bisect good [commit]",
+							"description": "Let the git bisect wizard know of a good commit"
+						},
+						{
+							"complexity": 2,
+							"code": "git bisect bad [commit]",
+							"description": "Let the git bisect wizard know of a bad commit"
+						},
+						{
+							"complexity": 2,
+							"code": "git bisect reset",
+							"description": "End your git bisect wizard"
+						}
+					]
+				},
+				{
+					"name": "blame",
+					"description": "Display author metadata attached to specific committed lines in a file",
+					"url": "https://git-scm.com/docs/git-blame",
+					"keywords": "debug blame",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "git blame [source]",
+							"description": "Show each author worked on the source including date, time and line numbers"
+						},
+						{
+							"complexity": 2,
+							"code": "git blame -L x,y [source]",
+							"description": "Restrict the output of source between x and y lines"
+						},
+						{
+							"complexity": 2,
+							"code": "git blame -e [source]",
+							"description": "Show author email address instead of username"
+						},
+						{
+							"complexity": 2,
+							"code": "git blame -w [source]",
+							"description": "Ignore whitespace changes"
+						}
+					]
+				}
+			]
+		}
+	]
+}

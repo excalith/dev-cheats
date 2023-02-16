@@ -1,0 +1,16 @@
+{
+	"cleanUrls": true,
+	"github": {
+		"silent": true
+	},
+	"rewrites": [
+		{
+			"source": "/index.html",
+			"destination": "/"
+		},
+		{
+			"source": "/:slug",
+			"destination": "/Docs/:slug"
+		}
+	]
+}

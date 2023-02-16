@@ -1,0 +1,33 @@
+.code-block {
+	border: 1px solid var(--background) !important;
+	margin-bottom: 1rem;
+	border-radius: 0.375rem;
+	transition: color 0.15s ease-in-out;
+}
+
+.code-block pre {
+	padding: 5px;
+	margin-bottom: 8px;
+	background-color: #181926;
+	transition: color 0.15s ease-in-out;
+}
+
+.code {
+	color: var(--code-color) !important;
+	display: flex;
+	align-items: center;
+	padding-left: 5px !important;
+	margin-right: 45px;
+	overflow: auto;
+	min-height: 35px;
+	transition: color 0.15s ease-in-out;
+}
+
+.code-description {
+	padding: 2px 0 0 8px;
+	margin-bottom: 8px;
+	background-color: transparent;
+	color: var(--codeDescription);
+	font-size: 15px;
+	transition: color 0.15s ease-in-out;
+}
