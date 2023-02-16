@@ -21,10 +21,10 @@ export default function Home({ errorMessage }) {
 				{errorMessage && (
 					<Alert
 						message={[
-							<span key="alert-main">
+							<div key="alert-main">
 								No cheatsheet found for {errorMessage}
-							</span>,
-							<span key="alert-contribute">
+							</div>,
+							<div key="alert-contribute">
 								Please consider{" "}
 								<a
 									href="https://github.com/excalith"
@@ -33,7 +33,7 @@ export default function Home({ errorMessage }) {
 									contributing
 								</a>{" "}
 								to the project.
-							</span>
+							</div>
 						]}
 						type="danger"
 					/>
