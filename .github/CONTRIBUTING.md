@@ -5,8 +5,9 @@
 The following is a set of guidelines for contributing to this repository.
 - [Contributing To Dev Cheats](#contributing-to-dev-cheats)
   - [Code of Conduct](#code-of-conduct)
-  - [Reporting Bugs](#reporting-bugs)
-  - [Suggesting Enhancements](#suggesting-enhancements)
+  - [Issues](#issues)
+    - [Reporting Bugs](#reporting-bugs)
+    - [Suggesting Enhancements](#suggesting-enhancements)
   - [Contributing To Source Code](#contributing-to-source-code)
     - [New Documents](#new-documents)
     - [New Features / Enhancements](#new-features--enhancements)
@@ -18,13 +19,14 @@ The following is a set of guidelines for contributing to this repository.
 ## Code of Conduct
 This project and everyone participating in it is governed by the [Dev Cheats Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
-## Reporting Bugs
+## Issues
+### Reporting Bugs
 Before creating bug reports, please perform a [cursory search](https://github.com/excalith/dev-cheats/issues) to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one. When you are creating a bug report, please include as many details as possible. Fill out the required template, the information it asks for will help maintainers resolve it faster.
 
 > **Note:** If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
 
 
-## Suggesting Enhancements
+### Suggesting Enhancements
 Before suggesting an enhancement, please perform a [cursory search](https://github.com/excalith/dev-cheats/issues) to see if the suggestion has already been submitted.
 
 * **User a clear descriptive title** for the suggestion
