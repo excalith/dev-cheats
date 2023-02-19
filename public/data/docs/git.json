@@ -1,7 +1,7 @@
 {
 	"meta": {
 		"title": "Git",
-		"author": "Can Cellek"
+		"contribs": ["excalith"]
 	},
 	"complexity": ["Basic", "Normal", "Advanced"],
 	"categories": [

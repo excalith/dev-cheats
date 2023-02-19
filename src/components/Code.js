@@ -27,7 +27,7 @@ const CodeBlock = ({ usage, complexity }) => {
 				</div>
 				<CopyButton usage={usage.code} />
 			</pre>
-			<p className="p-2 text-sm">{usage.description}</p>
+			<p className="p-2 text-sm text-description">{usage.description}</p>
 		</div>
 	)
 }

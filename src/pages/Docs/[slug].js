@@ -60,6 +60,8 @@ const Docs = () => {
 	let meta = parsedData.meta
 	let categories = parsedData.categories
 	let complexityOptions = parsedData.complexity
+	let contribs = parsedData.meta.contribs
+	console.log(contribs)
 
 	return (
 		<main className="container mx-auto">
@@ -84,7 +86,7 @@ const Docs = () => {
 				</section>
 			))}
 
-			<Footer style="w-full pb-5 pt-5" />
+			<Footer style="w-full pb-5 pt-5" contribs={contribs} />
 		</main>
 	)
 }

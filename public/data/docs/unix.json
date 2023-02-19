@@ -1,7 +1,7 @@
 {
 	"meta": {
 		"title": "UNIX",
-		"author": "Can Cellek"
+		"contribs": ["test", "test"]
 	},
 	"complexity": ["Basic", "Normal", "Advanced"],
 	"categories": [

@@ -4,6 +4,7 @@ const { createThemes } = require("tw-colors")
 module.exports = {
 	content: ["./src/**/*.{js,ts,jsx,tsx}"],
 	darkMode: ["class", '[data-mode="dark"]'],
+	important: true,
 	theme: {
 		fontFamily: {
 			sans: ["Rubik", "Helvetica", "Arial", "sans-serif"],
@@ -28,6 +29,7 @@ module.exports = {
 		},
 		borderWidth: {
 			DEFAULT: "1px",
+			accent: "3px",
 			0: "0",
 			1: "1px",
 			2: "2px",
@@ -46,9 +48,11 @@ module.exports = {
 	plugins: [
 		createThemes({
 			light: {
-				default: "#000",
 				background: "#e5e5e5",
 				cardBackground: "#fafafa",
+				default: "#000",
+				code: "#000",
+				description: "#cdd6f4",
 				white: "#fafafa",
 				gray: "#999999",
 				black: "#000000",
@@ -61,9 +65,11 @@ module.exports = {
 				cherry: "#c2185b"
 			},
 			dark: {
-				default: "#fff",
 				background: "#181926",
 				cardBackground: "#24273a",
+				default: "#fff",
+				code: "#fff",
+				description: "#cdd6f4",
 				white: "#fafafa",
 				gray: "#999999",
 				black: "#000000",

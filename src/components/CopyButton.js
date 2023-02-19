@@ -18,7 +18,7 @@ const CopyButton = ({ usage }) => {
 	return (
 		<div className="absolute top-0 right-0 h-full m-1 copy-button-wrapper">
 			<button
-				className={`border-solid rounded h-9 border-1 w-10 text-cardBackground border-cardBackground bg-background hover:text-green hover:border-green ${
+				className={`border-solid rounded h-9 border-1 w-10 text-description opacity-50 border-description bg-background hover:opacity-100 ${
 					isHidden & "active"
 				}`}
 				onClick={handleCopy}>

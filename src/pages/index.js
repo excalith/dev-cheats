@@ -21,17 +21,21 @@ export default function Home({ errorMessage }) {
 					<Alert
 						message={[
 							<div key="alert-main">
-								No cheatsheet found for {errorMessage}
+								No cheatsheet found for{" "}
+								<span className="font-medium text-red">
+									{errorMessage}
+								</span>
 							</div>,
 							<div key="alert-contribute">
 								Please consider{" "}
 								<a
-									href="https://github.com/excalith"
+									className="text-blue"
+									href="https://github.com/excalith/dev-cheats/issues/new/choose"
 									target="_blank"
 									rel="noopener noreferrer nofollow">
 									contributing
 								</a>{" "}
-								to the project.
+								to the project
 							</div>
 						]}
 						type="danger"

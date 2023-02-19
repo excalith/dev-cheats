@@ -5,6 +5,24 @@ import Code from "./Code"
 const Card = ({ data, category, accent, query, complexity }) => {
 	const [isHidden, setHidden] = useState(false)
 
+	const colorVariants = {
+		background: "border-background text-background",
+		cardBackground: "border-cardBackground text-cardBackground",
+		default: "border-default text-default",
+		code: "border-code text-code",
+		description: "border-description text-description",
+		white: "border-white text-white",
+		gray: "border-gray text-gray",
+		black: "border-black text-black",
+		red: "border-red text-red",
+		green: "border-green text-green",
+		blue: "border-blue text-blue",
+		orange: "border-orange text-orange",
+		purple: "border-purple text-purple",
+		cyan: "border-cyan text-cyan",
+		cherry: "border-cherry text-cherry"
+	}
+
 	useEffect(() => {
 		if (data.complexity > complexity) {
 			setHidden(true)
@@ -25,7 +43,7 @@ const Card = ({ data, category, accent, query, complexity }) => {
 				isHidden && "hidden"
 			}`}>
 			<div
-				className={`absolute h-full rounded border-solid border-l-5 border-${accent}`}></div>
+				className={`absolute h-full rounded border-solid border-accent ${colorVariants[accent]}`}></div>
 
 			<div className="mt-1.25 mr-1.25 mb-0 ml-3 p-4">
 				<h1>
@@ -46,7 +64,7 @@ const Card = ({ data, category, accent, query, complexity }) => {
 
 				{category !== "" && (
 					<p
-						className={`absolute text-lg top-4 right-4 text-${accent}`}>
+						className={`absolute text-lg top-4 right-4 ${colorVariants[accent]}`}>
 						{category}
 					</p>
 				)}
