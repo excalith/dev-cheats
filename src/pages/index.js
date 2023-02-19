@@ -43,7 +43,7 @@ export default function Home({ errorMessage }) {
 				)}
 				<SearchList />
 			</div>
-			<Footer style="absolute w-full bottom-5" />
+			<Footer style="absolute w-full bottom-5" contribs={[]} />
 		</>
 	)
 }

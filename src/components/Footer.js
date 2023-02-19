@@ -18,7 +18,7 @@ const Footer = ({ style, contribs }) => {
 				href="https://github.com/excalith/dev-cheats">
 				excalith
 			</Link>
-			{contribs && (
+			{contribs.length > 0 && (
 				<span>
 					{" and "}
 					<span
@@ -33,14 +33,16 @@ const Footer = ({ style, contribs }) => {
 							className="invisible w-3/5 mx-auto mt-2 text-center display-linebreak"
 							ref={contribElement}>
 							{contribs.map((contrib, index) => (
-								<Link
-									key={index}
-									className="text-blue"
-									target="_blank"
-									rel="noopener noreferrer nofollow"
-									href={`https://github.com/${contrib}`}>
-									{contrib}{" "}
-								</Link>
+								<span key={index}>
+									<Link
+										key={index}
+										className="text-blue"
+										target="_blank"
+										rel="noopener noreferrer nofollow"
+										href={`https://github.com/${contrib}`}>
+										{contrib}
+									</Link>{" "}
+								</span>
 							))}
 						</div>
 					)}
