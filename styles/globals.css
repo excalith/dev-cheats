@@ -5,7 +5,6 @@
 html body {
 	padding: 0;
 	margin: 0;
-	background-color: var(--background);
 	transition: background-color 0.15s ease-in-out;
 }
 
@@ -32,4 +31,12 @@ a:hover {
 
 .display-linebreak {
 	white-space: pre-line;
+}
+
+[data-theme="dark"] {
+	background-color: #181926;
+}
+
+[data-theme="light"] {
+	background-color: #e5e5e5;
 }
