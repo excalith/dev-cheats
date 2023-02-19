@@ -34,6 +34,10 @@ function getAllRecents() {
 	return []
 }
 
+function clearRecents() {
+	deleteCookie("recent-searches")
+}
+
 function saveCookie(name, data) {
 	setCookie(name, data, {
 		secure: true,
@@ -41,4 +45,4 @@ function saveCookie(name, data) {
 	})
 }
 
-export { addToRecents, getAllRecents }
+export { addToRecents, getAllRecents, clearRecents }

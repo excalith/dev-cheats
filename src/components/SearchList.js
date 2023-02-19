@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import { openLink } from "@/utils/openLink"
-import { getAllRecents } from "@/utils/recentSearches"
+import { getAllRecents, clearRecents } from "@/utils/recentSearches"
 
 const SearchList = () => {
 	const [input, setInput] = useState("")
@@ -100,6 +100,11 @@ const SearchList = () => {
 		setIsRecents(true)
 	}
 
+	const handleClearRecents = () => {
+		clearRecents()
+		clearSearch()
+	}
+
 	return (
 		<>
 			<div className="relative inline-block w-full drop-shadow-2xl">
@@ -115,7 +120,18 @@ const SearchList = () => {
 				/>
 				{suggestions?.length > 0 ? (
 					<div className="absolute w-full p-2 rounded-b-lg suggestion-wrapper top-14 border-t-1 border-background bg-cardBackground">
-						{isRecents && "Recent Searches:"}
+						{isRecents && (
+							<div className="flex h-10 md-4">
+								<span className="h-8 pt-2 pl-3 font-medium grow">
+									Recent Searches
+								</span>
+								<span
+									className="inline-block p-2 text-sm align-middle rounded-lg cursor-pointer h-9 right hover:bg-red"
+									onClick={handleClearRecents}>
+									Clear Recents
+								</span>
+							</div>
+						)}
 						{suggestions.map((item, index) => {
 							return (
 								<div
