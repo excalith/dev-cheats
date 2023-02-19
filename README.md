@@ -6,6 +6,10 @@
 Dev Cheats is an intuitive and user-friendly interactive cheatsheet that provides a handy reference for developers to search and access various command line tool usages quickly and efficiently.
 </p>
 
+<p align="center">
+    <img src=".github/splash.gif">
+</p>
+
 ## Warning
 
 This project is still in development. Please feel free to contribute any way you can. Just keep in mind that you should pay attention to [CONTRIBUTE.md](.github/CONTRIBUTING.md) before contributing.
