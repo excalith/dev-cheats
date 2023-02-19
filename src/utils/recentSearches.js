@@ -18,10 +18,10 @@ function addToRecents(key) {
 		recents.splice(index, 1)
 	}
 
-	recents.push(key)
+	recents.unshift(key)
 
 	if (recents.length > maxRecentSearches) {
-		recents.splice(0, recents.length - maxRecentSearches)
+		recents.splice(maxRecentSearches)
 	}
 
 	saveCookie("recent-searches", JSON.stringify(recents))
