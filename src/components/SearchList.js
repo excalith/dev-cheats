@@ -95,11 +95,6 @@ const SearchList = () => {
 		setIsRecents(false)
 	}
 
-	/* TODO:
-		- On click suggestion, save to recent searches through cookie
-		- If cookie exists, remove and add to top of list
-		- Show only the 5 most recent searches, and remove the rest
-	*/
 	const getRecents = () => {
 		setSuggestions(getAllRecents())
 		setIsRecents(true)
