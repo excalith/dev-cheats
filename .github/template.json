@@ -1,0 +1,73 @@
+{
+	"meta": {
+		"title": "template",
+		"contribs": ["github_username1", "github_username2"]
+	},
+	"complexity": ["Basic", "Normal", "Advanced"],
+	"categories": [
+		{
+			"name": "Category 1",
+			"color": "green",
+			"commands": [
+				{
+					"name": "command1",
+					"description": "Example command 1",
+					"url": "https://someurl/command",
+					"keywords": "category1 command1",
+					"complexity": 0,
+					"usage": [
+						{
+							"code": "template command1",
+							"complexity": 0,
+							"description": "Example usage of command1 for template with basic complexity filter"
+						},
+						{
+							"code": "template command1 -a",
+							"complexity": 1,
+							"description": "Example usage of command1 for template with one argument with normal complexity filter"
+						},
+						{
+							"code": "template command1 -la",
+							"complexity": 2,
+							"description": "Example usage of command1 for template with 2 arguments with advanced complexity filter"
+						}
+					]
+				},
+				{
+					"name": "command2",
+					"description": "Example command 2",
+					"url": "https://someurl/command",
+					"keywords": "category1 command2",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "template command2",
+							"description": "A new command with normal complexity filter"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Category 2",
+			"color": "blue",
+			"commands": [
+				{
+					"name": "command3",
+					"description": "Example command 3",
+					"url": "https://someurl/command",
+					"keywords": "category2 command3",
+					"complexity": 2,
+					"usage": [
+						{
+							"code": "template command3",
+							"complexity": 0,
+							"description": "Example usage of command3 for template with advanced complexity filter"
+						}
+					]
+				}
+			]
+		}
+	]
+}
