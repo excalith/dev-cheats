@@ -24,14 +24,15 @@ const Card = ({ data, category, accent, query, complexity }) => {
 			className={`relative mb-4 bg-cardBackground rounded-lg drop-shadow-2xl ${
 				isHidden && "hidden"
 			}`}>
-			<div className={`absolute h-full rounded ${accent}`}></div>
+			<div
+				className={`absolute h-full rounded border-solid border-l-5 border-${accent}`}></div>
 
 			<div className="mt-1.25 mr-1.25 mb-0 ml-3 p-4">
 				<h1>
 					{data.url ? (
 						<Link
 							href={data.url}
-							className="px-2 -ml-2 text-4xl font-medium text-white rounded visited:text-white text-title hover:no-underline hover:bg-blue"
+							className="px-2 -ml-2 text-4xl font-medium rounded text-default hover:text-white visited:text-white hover:no-underline hover:bg-blue"
 							target="_blank"
 							rel="noopener noreferrer nofollow">
 							{data.name}
@@ -44,7 +45,8 @@ const Card = ({ data, category, accent, query, complexity }) => {
 				</h1>
 
 				{category !== "" && (
-					<p className={`absolute text-lg top-4 right-4 ${accent}`}>
+					<p
+						className={`absolute text-lg top-4 right-4 text-${accent}`}>
 						{category}
 					</p>
 				)}

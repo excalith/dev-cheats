@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-	--text-color-dark: #fff;
+	/* --text-color-dark: #fff;
 	--background-dark: #181926;
 	--cardBackground-dark: #24273a;
 	--codeColor-dark: #fafafa;
@@ -30,7 +30,7 @@
 	--orange: #ff8800;
 	--purple: #774aff;
 	--cyan: #00bcd4;
-	--cherry: #c2185b;
+	--cherry: #c2185b; */
 }
 
 html body {
@@ -65,7 +65,7 @@ a:hover {
 .display-linebreak {
 	white-space: pre-line;
 }
-
+/* 
 [data-theme="dark"] {
 	--text-color: var(--text-color-dark);
 	--background: var(--background-dark);
@@ -146,4 +146,4 @@ div.cyan {
 }
 div.cherry {
 	border-left: 5px solid var(--cherry);
-}
+} */

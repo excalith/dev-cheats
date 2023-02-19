@@ -133,7 +133,7 @@ const SearchList = () => {
 						{suggestions.map((item, index) => {
 							return (
 								<div
-									className="w-full p-3 transition duration-300 ease-in-out delay-150 rounded-lg cursor-pointer suggestions drop-shadow-2xl hover:-translate-1 hover:scale-110 hover:bg-blue"
+									className="w-full p-3 transition duration-300 ease-in-out delay-150 rounded-lg cursor-pointer suggestions drop-shadow-2xl hover:-translate-1 hover:scale-110 hover:bg-blue hover:text-white"
 									key={index}
 									onClick={() => selectValue(item)}>
 									{item}

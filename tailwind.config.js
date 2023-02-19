@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const { createThemes } = require("tw-colors")
+
 module.exports = {
 	content: ["./src/**/*.{js,ts,jsx,tsx}"],
 	darkMode: ["class", '[data-mode="dark"]'],
@@ -31,11 +33,35 @@ module.exports = {
 			2: "2px",
 			3: "3px",
 			4: "4px",
+			5: "5px",
 			6: "6px",
 			8: "8px"
 		},
 		extend: {
-			colors: {
+			dropShadow: {
+				"2xl": "0px 5px 15px rgba(0, 0, 0, 0.25)"
+			}
+		}
+	},
+	plugins: [
+		createThemes({
+			light: {
+				default: "#000",
+				background: "#e5e5e5",
+				cardBackground: "#fafafa",
+				white: "#fafafa",
+				gray: "#999999",
+				black: "#000000",
+				red: "#ff5252",
+				green: "#8bc34a",
+				blue: "#6366f1",
+				orange: "#ff8800",
+				purple: "#774aff",
+				cyan: "#00bcd4",
+				cherry: "#c2185b"
+			},
+			dark: {
+				default: "#fff",
 				background: "#181926",
 				cardBackground: "#24273a",
 				white: "#fafafa",
@@ -48,11 +74,7 @@ module.exports = {
 				purple: "#774aff",
 				cyan: "#00bcd4",
 				cherry: "#c2185b"
-			},
-			dropShadow: {
-				"2xl": "0px 5px 15px rgba(0, 0, 0, 0.25)"
 			}
-		}
-	},
-	plugins: []
+		})
+	]
 }

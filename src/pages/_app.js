@@ -10,7 +10,7 @@ const rubik = Rubik({
 function DevCheats({ Component, pageProps }) {
 	return (
 		<ThemeProvider>
-			<main className={rubik.className}>
+			<main className={`transition-colors ${rubik.className}`}>
 				<Component {...pageProps} />
 			</main>
 		</ThemeProvider>
