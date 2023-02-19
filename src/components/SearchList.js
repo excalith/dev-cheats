@@ -15,9 +15,7 @@ const SearchList = () => {
 			.then((data) => {
 				setData(JSON.parse(data))
 			})
-	}, [])
 
-	useEffect(() => {
 		// Focus on search bar
 		if (searchElement.current) {
 			searchElement.current.focus()
