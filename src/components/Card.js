@@ -1,8 +1,6 @@
-import "./Card.css"
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import Code from "./Code"
-import { BsFillArrowUpRightSquareFill } from "react-icons/bs"
 
 const Card = ({ data, category, accent, query, complexity }) => {
 	const [isHidden, setHidden] = useState(false)
@@ -22,42 +20,49 @@ const Card = ({ data, category, accent, query, complexity }) => {
 		[isHidden]
 
 	return (
-		<div className={isHidden ? "card hidden" : "card"}>
-			<div className={`mh-100 card-accent ${accent}`}></div>
-			<div className="card-content">
-				<div className="card-body">
-					<h1 className="card-title">
-						{data.url ? (
-							<Link
-								href={data.url}
-								className="documentation-link"
-								target="_blank"
-								rel="noopener noreferrer nofollow">
-								{data.name}
-								<BsFillArrowUpRightSquareFill className="documentation-icon" />
-							</Link>
-						) : (
-							<span>{data.name}</span>
-						)}
-					</h1>
-					{category !== "" && (
-						<p className={`card-category ${accent}`}>{category}</p>
+		<div
+			className={`mb-4 bg-cardBackground rounded-lg drop-shadow-2xl ${
+				isHidden ? "card hidden" : "card"
+			}`}>
+			<div className={`absolute min-h-full rounded ${accent}`}></div>
+			<div className="mt-1.25 mr-1.25 mb-0 ml-3 p-4">
+				<h1>
+					{data.url ? (
+						<Link
+							href={data.url}
+							className="px-2 -ml-2 text-4xl font-medium text-white rounded visited:text-white text-title hover:no-underline hover:bg-blue"
+							target="_blank"
+							rel="noopener noreferrer nofollow">
+							{data.name}
+						</Link>
+					) : (
+						<span className="text-4xl font-medium">
+							{data.name}
+						</span>
 					)}
-					<p className="card-description">{data.description}</p>
-					<h5 className="card-usage">Usage:</h5>
-					<div>
-						{data.usage.map((usage, index) => {
-							{
-								return (
-									<Code
-										key={index}
-										usage={usage}
-										complexity={complexity}
-									/>
-								)
-							}
-						})}
-					</div>
+				</h1>
+
+				{category !== "" && (
+					<p className={`absolute text-lg top-4 right-4 ${accent}`}>
+						{category}
+					</p>
+				)}
+
+				<p className="mt-2.5 mb-6 text-base">{data.description}</p>
+
+				<h2 className="mt-3 mb-1 text-xl font-medium">Usage:</h2>
+				<div>
+					{data.usage.map((usage, index) => {
+						{
+							return (
+								<Code
+									key={index}
+									usage={usage}
+									complexity={complexity}
+								/>
+							)
+						}
+					})}
 				</div>
 			</div>
 		</div>

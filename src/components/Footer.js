@@ -1,12 +1,11 @@
-import "./Footer.css"
 import React from "react"
 import Link from "next/link"
 
-const Footer = () => {
+const Footer = ({ style }) => {
 	return (
-		<div className="footer wh-100 mt-auto">
-			<p>
-				Made with <span>&hearts;</span> by{" "}
+		<div className={style}>
+			<p className="text-center ">
+				Made with <span className="text-red">&hearts;</span> by{" "}
 				<Link
 					target="_blank"
 					rel="noopener noreferrer nofollow"

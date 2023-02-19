@@ -1,0 +1,46 @@
+import { hasCookie, getCookie, setCookie, deleteCookie } from "cookies-next"
+
+function addToRecents(key) {
+	console.log("addToRecents: ", key)
+
+	const maxRecentSearches = 5
+	let recents = []
+
+	const hasRecentSearches = hasCookie("recent-searches")
+
+	if (hasRecentSearches) {
+		recents = JSON.parse(getCookie("recent-searches"))
+	}
+
+	const index = recents.indexOf(key)
+
+	if (index !== -1) {
+		recents.splice(index, 1)
+	}
+
+	recents.push(key)
+
+	if (recents.length > maxRecentSearches) {
+		recents.splice(0, recents.length - maxRecentSearches)
+	}
+
+	saveCookie("recent-searches", JSON.stringify(recents))
+}
+
+function getAllRecents() {
+	const hasRecentSearches = hasCookie("recent-searches")
+	if (hasRecentSearches) {
+		return JSON.parse(getCookie("recent-searches"))
+	}
+
+	return []
+}
+
+function saveCookie(name, data) {
+	setCookie(name, data, {
+		secure: true,
+		sameSite: "strict"
+	})
+}
+
+export { addToRecents, getAllRecents }

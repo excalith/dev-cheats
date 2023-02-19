@@ -4,18 +4,17 @@ import Logo from "@/components/Logo"
 import SearchList from "@/components/SearchList"
 import Alert from "@/components/Alert"
 import Footer from "@/components/Footer"
-import "./index.css"
 
 export default function Home({ errorMessage }) {
 	return (
-		<div className="container container-sm d-flex flex-column min-vh-100">
+		<>
 			<NextSeo
 				title={"Home • Dev Cheats"}
 				description={
 					"Dev Cheats is a collection of cheatsheets for developers. It's a place where you can find all the cheatsheets you need in one place."
 				}
 			/>
-			<div className="main-wrapper position-absolute start-50 translate-middle">
+			<div className="absolute w-full max-w-md transform -translate-x-1/2 -translate-y-1/3 top-1/3 left-1/2">
 				<Logo />
 				<br />
 				{errorMessage && (
@@ -40,7 +39,7 @@ export default function Home({ errorMessage }) {
 				)}
 				<SearchList />
 			</div>
-			<Footer />
-		</div>
+			<Footer style="absolute w-full bottom-5" />
+		</>
 	)
 }

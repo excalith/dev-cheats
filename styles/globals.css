@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
 	--text-color-dark: #fff;
 	--background-dark: #181926;
@@ -22,7 +26,7 @@
 	--black: #000000;
 	--red: #ff5252;
 	--green: #8bc34a;
-	--blue: #5270f5;
+	--blue: #6366f1;
 	--orange: #ff8800;
 	--purple: #774aff;
 	--cyan: #00bcd4;
@@ -59,13 +63,7 @@ a:hover {
 }
 
 .display-linebreak {
-  white-space: pre-line;
-}
-
-
-.container {
-	max-width: 900px;
-	height: 100vh;
+	white-space: pre-line;
 }
 
 [data-theme="dark"] {

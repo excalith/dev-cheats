@@ -4,6 +4,7 @@ import { NextSeo } from "next-seo"
 import axios from "axios"
 import useSWR from "swr"
 
+import { addToRecents } from "@/utils/recentSearches"
 import { subscribe, unsubscribe } from "@/utils/event"
 import Loader from "@/components/Loader"
 import Search from "@/components/Search"
@@ -52,40 +53,39 @@ const Docs = () => {
 	let parsedData = JSON.parse(data)
 	if (!parsedData) return <Loader />
 
+	// Add to recent searches
+	addToRecents(slug)
+
 	// Parse the data
 	let meta = parsedData.meta
 	let categories = parsedData.categories
 	let complexityOptions = parsedData.complexity
 
 	return (
-		<div className="container container-sm">
+		<main className="container mx-auto">
 			<NextSeo
 				title={meta.title + " • Dev Cheats"}
 				description={"Commands And Usage Examples For " + meta.title}
 			/>
+
 			<Search slug={slug} complexityOptions={complexityOptions} />
-
-			<main className="main">
-				<div>
-					{categories.map((category, index) => (
-						<div key={index}>
-							{category.commands.map((command, i) => (
-								<Card
-									key={index + "-" + i}
-									data={command}
-									category={category.name}
-									accent={category.color}
-									query={search}
-									complexity={complexity}
-								/>
-							))}
-						</div>
+			{categories.map((category, index) => (
+				<section key={index}>
+					{category.commands.map((command, i) => (
+						<Card
+							key={index + "-" + i}
+							data={command}
+							category={category.name}
+							accent={category.color}
+							query={search}
+							complexity={complexity}
+						/>
 					))}
-				</div>
-			</main>
+				</section>
+			))}
 
-			<Footer />
-		</div>
+			<Footer style="w-full pb-5 pt-5" />
+		</main>
 	)
 }
 

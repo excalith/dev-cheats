@@ -1,7 +1,5 @@
-import "bootstrap/dist/css/bootstrap.css"
 import "../../styles/globals.css"
 import { Rubik } from "@next/font/google"
-
 import { ThemeProvider } from "next-themes"
 
 const rubik = Rubik({

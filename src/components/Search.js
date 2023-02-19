@@ -1,7 +1,7 @@
-import "./Search.css"
-import React, { useRef, useEffect, useCallback } from "react"
+import React, { useRef, useEffect } from "react"
 import { hasCookie, getCookie, setCookie } from "cookies-next"
 import { publish } from "../utils/event"
+import { openLink } from "@/utils/openLink"
 
 const Search = ({ slug, complexityOptions }) => {
 	const searchElement = useRef(null)
@@ -39,10 +39,19 @@ const Search = ({ slug, complexityOptions }) => {
 		publish("searchChange", e.target.value)
 	}
 
+	const launchHome = (e) => {
+		openLink("/", "_self")
+	}
+
 	return (
-		<div className="sticky-top search-row">
+		<div className="sticky z-50 top-0 h-16 mt-3.5 mb-6 p-1.5 space-x-2 rounded-lg drop-shadow-2xl bg-cardBackground flex">
+			<button
+				className="px-4 font-sans text-xl text-center align-middle transition duration-300 ease-in-out delay-150 rounded cursor-pointer w-25 bg-red hover:-translate-2 hover:scale-125 hover:bg-blue"
+				onClick={launchHome}>
+				D
+			</button>
 			<input
-				className="form-control search-bar"
+				className="h-full px-4 font-sans text-xl text-center rounded-lg outline-none grow bg-background"
 				type="text"
 				onChange={changeSearch}
 				placeholder="Search"
@@ -50,7 +59,7 @@ const Search = ({ slug, complexityOptions }) => {
 				ref={searchElement}
 			/>
 			<select
-				className="search-complexity form-select form-select-lg mb-3"
+				className="h-full px-4 font-sans rounded-lg outline-none w-25 p-5text-large bg-background"
 				onChange={changeComplexity}
 				ref={complexityElement}>
 				{complexityOptions.map((item, index) => {
