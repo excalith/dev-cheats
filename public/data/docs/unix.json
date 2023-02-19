@@ -1,7 +1,7 @@
 {
 	"meta": {
 		"title": "UNIX",
-		"contribs": ["test", "test"]
+		"contribs": []
 	},
 	"complexity": ["Basic", "Normal", "Advanced"],
 	"categories": [
