@@ -32,7 +32,7 @@ You can find and bookmark the online version from [dev-cheats.vercel.app](https:
 - [NextJS](https://nextjs.org/)
 - [Axios](https://axios-http.com/)
 - [SWR](https://swr.vercel.app/)
-- [Bootstrap](https://getbootstrap.com/)
+- [Tailwind](https://tailwindcss.com/)
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [Husky](https://typicode.github.io/husky/)

@@ -1,7 +1,5 @@
-import "bootstrap/dist/css/bootstrap.css"
 import "../../styles/globals.css"
 import { Rubik } from "@next/font/google"
-
 import { ThemeProvider } from "next-themes"
 
 const rubik = Rubik({
@@ -12,7 +10,7 @@ const rubik = Rubik({
 function DevCheats({ Component, pageProps }) {
 	return (
 		<ThemeProvider>
-			<main className={rubik.className}>
+			<main className={`transition-colors ${rubik.className}`}>
 				<Component {...pageProps} />
 			</main>
 		</ThemeProvider>

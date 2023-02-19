@@ -1,4 +1,3 @@
-import "./Code.css"
 import React, { useEffect, useState } from "react"
 import CopyButton from "./CopyButton"
 import { Fira_Code } from "@next/font/google"
@@ -16,17 +15,19 @@ const CodeBlock = ({ usage, complexity }) => {
 	}, [complexity, usage.complexity])
 
 	return (
-		<div className={isHidden ? "code-block hidden" : "code-block"}>
-			<pre>
-				<div className="code-row row g-0">
-					<code
-						className={`col d-sm-flex code ${firaCode.className}`}>
+		<div
+			className={`border-solid rounded-lg border-1 mb-4 border-background ${
+				isHidden && "hidden"
+			}`}>
+			<pre className="relative bg-background h-11">
+				<div className="h-full pl-2 pr-4 overflow-x-auto overflow-y-hidden leading-10 text-m mr-14">
+					<code className={`text-xs ${firaCode.className}`}>
 						{usage.code}
 					</code>
-					<CopyButton usage={usage.code} />
 				</div>
+				<CopyButton usage={usage.code} />
 			</pre>
-			<p className="code-description">{usage.description}</p>
+			<p className="p-2 text-sm text-description">{usage.description}</p>
 		</div>
 	)
 }
