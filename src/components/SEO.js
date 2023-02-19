@@ -5,7 +5,6 @@ const SEO = (slug, title, description) => {
 	if (description === undefined) {
 		description = `Commands and usage examples for ${title}`
 	}
-	console.log(slug, title, description)
 	// const socialImage = "https://cancellek.com/social-image.png"
 
 	return (

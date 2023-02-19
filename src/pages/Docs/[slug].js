@@ -61,7 +61,6 @@ const Docs = () => {
 	let categories = parsedData.categories
 	let complexityOptions = parsedData.complexity
 	let contribs = parsedData.meta.contribs
-	console.log(contribs)
 
 	return (
 		<main className="container mx-auto">
