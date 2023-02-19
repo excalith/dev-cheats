@@ -46,8 +46,8 @@ For more information, please check [package.json](package.json)
 
 ## How To Contribute
 
-Please feel free to contribute any way you can. Just keep in mind that you should pay attention to [CONTRIBUTE.md](.github/CONTRIBUTING.md) before contributing.
+Please feel free to contribute any way you can. Just keep in mind that you should pay attention to [CONTRIBUTING](.github/CONTRIBUTING.md) before contributing.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
