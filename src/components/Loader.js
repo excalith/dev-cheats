@@ -1,12 +1,14 @@
 import React from "react"
-import HashLoader from "react-spinners/HashLoader"
+import { ScaleLoader } from "react-spinners"
 
 const Loader = () => {
 	return (
-		<HashLoader
-			className="position-absolute top-50 start-50 translate-middle"
-			size="120px"
-			color="#df8e1d"
+		<ScaleLoader
+			className="absolute transform -translate-x-1/2 -translate-y-1/3 top-1/3 left-1/2"
+			color="#6366f1"
+			height={80}
+			radius={8}
+			width={24}
 		/>
 	)
 }
