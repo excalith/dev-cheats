@@ -52,7 +52,7 @@ module.exports = {
 				cardBackground: "#fafafa",
 				default: "#000",
 				code: "#000",
-				description: "#cdd6f4",
+				description: "#6B7280",
 				white: "#fafafa",
 				gray: "#999999",
 				black: "#000000",

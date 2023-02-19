@@ -46,7 +46,7 @@ const Search = ({ slug, complexityOptions }) => {
 	return (
 		<div className="sticky z-50 top-0 h-16 mt-3.5 mb-6 p-1.5 space-x-2 rounded-lg drop-shadow-2xl bg-cardBackground flex">
 			<button
-				className="px-4 font-sans text-xl text-center align-middle transition duration-300 ease-in-out delay-150 rounded cursor-pointer w-25 bg-red hover:-translate-2 hover:scale-125 hover:bg-blue"
+				className="px-4 font-sans text-xl text-center text-white align-middle transition duration-300 ease-in-out delay-150 rounded cursor-pointer w-25 bg-red hover:-translate-2 hover:scale-125 hover:bg-blue"
 				onClick={launchHome}>
 				D
 			</button>
