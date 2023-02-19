@@ -1,8 +1,6 @@
 import { hasCookie, getCookie, setCookie, deleteCookie } from "cookies-next"
 
 function addToRecents(key) {
-	console.log("addToRecents: ", key)
-
 	const maxRecentSearches = 5
 	let recents = []
 
