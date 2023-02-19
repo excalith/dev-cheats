@@ -17,7 +17,7 @@ const CodeBlock = ({ usage, complexity }) => {
 	return (
 		<div
 			className={`border-solid rounded-lg border-1 mb-4 border-background ${
-				isHidden & "hidden"
+				isHidden && "hidden"
 			}`}>
 			<pre className="relative bg-background h-11">
 				<div className="h-full pl-2 pr-4 overflow-x-auto overflow-y-hidden leading-10 text-m mr-14">

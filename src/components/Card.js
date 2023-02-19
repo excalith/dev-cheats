@@ -22,7 +22,7 @@ const Card = ({ data, category, accent, query, complexity }) => {
 	return (
 		<div
 			className={`mb-4 bg-cardBackground rounded-lg drop-shadow-2xl ${
-				isHidden ? "card hidden" : "card"
+				isHidden && "hidden"
 			}`}>
 			<div className={`absolute min-h-full rounded ${accent}`}></div>
 			<div className="mt-1.25 mr-1.25 mb-0 ml-3 p-4">
