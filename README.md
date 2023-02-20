@@ -12,7 +12,7 @@ Dev Cheats is an intuitive and user-friendly interactive cheatsheet that provide
 
 ## Warning
 
-This project is still in development. Please feel free to contribute any way you can. Just keep in mind that you should pay attention to [CONTRIBUTE.md](.github/CONTRIBUTING.md) before contributing.
+This project is still in development. Please feel free to contribute any way you can. Just keep in mind that you should pay attention to [CONTRIBUTING](.github/CONTRIBUTING.md) before contributing.
 
 ## Features
 
