@@ -96,7 +96,7 @@ const SearchList = () => {
 	return (
 		<div className="absolute inline-block w-full px-4 drop-shadow-2xl ">
 			<input
-				className="w-full h-16 px-4 font-sans text-xl rounded-lg outline-none input bg-cardBackground"
+				className="w-full h-16 px-4 font-sans text-xl rounded-lg outline-none bg-cardBackground"
 				type="text"
 				placeholder="Search Database"
 				value={input}
@@ -105,7 +105,7 @@ const SearchList = () => {
 				ref={searchElement}
 			/>
 			{suggestions?.length > 0 ? (
-				<div className="relative w-full p-2 rounded-b-lg overflow-y-clip -top-1 max-h-72 suggestion-wrapper border-t-1 border-background bg-cardBackground">
+				<div className="relative w-full p-2 rounded-b-lg overflow-y-clip -top-2 max-h-72 suggestion-wrapper border-t-1 border-background bg-cardBackground">
 					{isRecents && (
 						<div
 							className={`flex h-10 md-4 ${
