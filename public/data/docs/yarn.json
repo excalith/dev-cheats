@@ -1,0 +1,288 @@
+{
+	"meta": {
+		"title": "Yarn",
+		"contribs": []
+	},
+	"complexity": ["Basic", "Normal", "Advanced"],
+	"categories": [
+		{
+			"name": "Create",
+			"color": "green",
+			"commands": [
+				{
+					"name": "init",
+					"description": "Initializes a package.json file",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/init",
+					"keywords": "create init",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "yarn init",
+							"description": "Initializes an interactive session to create a package.json file"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn init -y",
+							"description": "Creates a package.json file with default values"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn init -p",
+							"description": "Creates a package.json file with default values and sets the private property to true"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Create",
+			"color": "green",
+			"commands": [
+				{
+					"name": "create",
+					"description": "Creates new projects from any create-* starter kits",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/create",
+					"keywords": "create",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "yarn create <starter-kit-package>",
+							"description": "Creates <starter-kit-package>"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn create <starter-kit-package> [<args>]",
+							"description": "Creates <starter-kit-package> with [<args>]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Dependency",
+			"color": "orange",
+			"commands": [
+				{
+					"name": "add",
+					"description": "Installs a package and any packages that it depends on",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/add",
+					"keywords": "dependency add",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "yarn add [package-name]",
+							"description": "Installs [package-name] and updates package.json and yarn.lock files"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn add [package-name]@[version]",
+							"description": "Installs [package-name]@[version] and updates package.json and yarn.lock files"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn add [package-name]@[tag]",
+							"description": "Installs [package-name]@[tag] and updates package.json and yarn.lock files"
+						}
+					]
+				},
+				{
+					"name": "remove",
+					"description": "Installs a package and any packages that it depends on",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/remove",
+					"keywords": "dependency add",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "yarn remove [package-name]",
+							"description": "Removes [package-name] from package.json and yarn.lock files"
+						}
+					]
+				},
+				{
+					"name": "install",
+					"description": "Installs all dependencies for the current project",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/install",
+					"keywords": "dependency install",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "yarn install",
+							"description": "Installs all dependencies for the current project"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn install --check-files",
+							"description": "Verifies that already installed files in node_modules did not get removed"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn install --flat",
+							"description": "Install all the dependencies, but only allow one version for each package"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn install --force",
+							"description": "Refetches all packages, even ones that were previously installed"
+						},
+						{
+							"complexity": 2,
+							"code": "yarn install --no-lockfile",
+							"description": "Don’t read or generate a yarn.lock lockfile."
+						},
+						{
+							"complexity": 2,
+							"code": "yarn install --pure-lockfile",
+							"description": "Don’t generate a yarn.lock lockfile."
+						},
+						{
+							"complexity": 2,
+							"code": "yarn install --verbose",
+							"description": "Show additional logs while installing dependencies"
+						}
+					]
+				},
+				{
+					"name": "upgrade",
+					"description": "Upgrades packages to their latest version based on the specified range",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/upgrade",
+					"keywords": "dependency upgrade",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "yarn upgrade",
+							"description": "Upgrades packages to their latest version"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn upgrade [package-name]",
+							"description": "Upgrades [package-name] to its latest version"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn upgrade [package-name]@^1.0.0",
+							"description": "Upgrades [package-name] to its latest version in the 1.x.x range"
+						}
+					]
+				},
+				{
+					"name": "list",
+					"description": "Lists all dependencies for the current working directory",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/list",
+					"keywords": "dependency list",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "yarn list",
+							"description": "Lists all dependencies for the current working directory"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn list --depth=[depth]",
+							"description": "Lists all dependencies for the current working directory with a depth of [depth]"
+						}
+					]
+				},
+				{
+					"name": "info",
+					"description": "Fetch information about a package",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/info",
+					"keywords": "dependency info",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "yarn info [package-name]",
+							"description": "Fetches information about [package-name]"
+						}
+					]
+				},
+				{
+					"name": "pack",
+					"description": "Creates a compressed gzip archive of package dependencies.",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/pack",
+					"keywords": "dependency pack",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "yarn pack",
+							"description": "Creates a compressed gzip archive of package dependencies"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Global",
+			"color": "blue",
+			"commands": [
+				{
+					"name": "global",
+					"description": "Prefix used for a number of commands like add, remove, list and bin",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/global",
+					"keywords": "global add remove list bin",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "yarn global add [package-name]",
+							"description": "Installs [package-name] globally"
+						},
+						{
+							"complexity": 0,
+							"code": "yarn global remove [package-name]",
+							"description": "Removes [package-name] globally"
+						},
+						{
+							"complexity": 0,
+							"code": "yarn global list [package-name]",
+							"description": "Lists globally installed packages"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn global bin",
+							"description": "Prints the location where Yarn will install symlinks to your installed"
+						},
+						{
+							"complexity": 1,
+							"code": "yarn global dir",
+							"description": "Print the output of the global installation folder that houses the global node_modules"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Maintenance",
+			"color": "cherry",
+			"commands": [
+				{
+					"name": "audit",
+					"description": "Perform a vulnerability audit against the installed packages",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/audit",
+					"keywords": "maintenance audit",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "yarn audit --groups dependencies",
+							"description": "Audits only dependencies"
+						},
+						{
+							"complexity": 2,
+							"code": "yarn audit --groups \"dependencies devDependencies\"",
+							"description": "Audits both dependencies and devDependencies"
+						}
+					]
+				}
+			]
+		}
+	]
+}
