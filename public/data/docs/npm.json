@@ -1,0 +1,199 @@
+{
+	"meta": {
+		"title": "NPM",
+		"contribs": []
+	},
+	"complexity": ["Basic", "Normal", "Advanced"],
+	"categories": [
+		{
+			"name": "Create",
+			"color": "green",
+			"commands": [
+				{
+					"name": "init",
+					"description": "Initializes a package.json file",
+					"url": "https://docs.npmjs.com/cli/v9/commands/npm-init",
+					"keywords": "create init",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "npm init",
+							"description": "Initializes an interactive session to create a package.json file"
+						},
+						{
+							"complexity": 1,
+							"code": "npm init -y",
+							"description": "Creates a package.json file with default values"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Dependency",
+			"color": "orange",
+			"commands": [
+				{
+					"name": "install",
+					"description": "Installs a package and any packages that it depends on",
+					"url": "https://docs.npmjs.com/cli/v9/commands/npm-install",
+					"keywords": "dependency install",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "npm install",
+							"description": "Installs all dependencies for the current project"
+						},
+						{
+							"complexity": 0,
+							"code": "npm install --global [package-name]",
+							"description": "Installs [package-name] globally"
+						},
+						{
+							"complexity": 0,
+							"code": "npm install [package-name]",
+							"description": "Installs [package-name] and updates package.json and lock files for production"
+						},
+						{
+							"complexity": 0,
+							"code": "npm install --save-dev [package-name]",
+							"description": "Installs [package-name] and updates package.json and lock files for development"
+						},
+						{
+							"complexity": 1,
+							"code": "npm install [package-name]@[version]",
+							"description": "Installs [package-name]@[version] and updates package.json and lock files"
+						},
+						{
+							"complexity": 1,
+							"code": "npm install [package-name]@[tag]",
+							"description": "Installs [package-name]@[tag] and updates package.json and lock files"
+						}
+					]
+				},
+				{
+					"name": "uninstall",
+					"description": "Uninstalls a package and any packages that it depends on",
+					"url": "https://docs.npmjs.com/cli/v9/commands/npm-uninstall",
+					"keywords": "dependency uninstall",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "npm uninstall [package-name]",
+							"description": "Uninstalls [package-name] from package.json and lock files"
+						},
+						{
+							"complexity": 0,
+							"code": "npm uninstall --global [package-name]",
+							"description": "Uninstalls [package-name] globally"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"description": "Updates packages to their latest version based on the specified range",
+					"url": "https://docs.npmjs.com/cli/v9/commands/npm-update",
+					"keywords": "dependency upgrade",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "npm update",
+							"description": "Updates production packages to their latest version"
+						},
+						{
+							"complexity": 0,
+							"code": "npm update --dev",
+							"description": "Updates development packages to their latest version"
+						},
+						{
+							"complexity": 1,
+							"code": "npm update [package-name]",
+							"description": "Updates [package-name] to its latest version"
+						}
+					]
+				},
+				{
+					"name": "ls",
+					"description": "Lists all dependencies for the current working directory",
+					"url": "https://docs.npmjs.com/cli/v9/commands/npm-ls",
+					"keywords": "dependency list",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "npm ls",
+							"description": "Lists all dependencies for the current working directory with a depth of 0"
+						},
+						{
+							"complexity": 1,
+							"code": "npm ls --all",
+							"description": "Lists all dependencies for the current working directory"
+						}
+					]
+				},
+				{
+					"name": "outdated",
+					"description": "Checks all outdated packages for the current working directory",
+					"url": "https://docs.npmjs.com/cli/v9/commands/npm-outdated",
+					"keywords": "dependency outdated",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "npm outdated",
+							"description": "Checks all outdated packages for the current working directory"
+						}
+					]
+				},
+				{
+					"name": "pack",
+					"description": "Creates a compressed tarball archive of package dependencies.",
+					"url": "https://docs.npmjs.com/cli/v9/commands/npm-pack",
+					"keywords": "dependency pack",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "npm pack",
+							"description": "Creates a compressed tarball archive of package dependencies"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Maintenance",
+			"color": "cherry",
+			"commands": [
+				{
+					"name": "audit",
+					"description": "Perform a vulnerability audit against the installed packages",
+					"url": "https://docs.npmjs.com/cli/v9/commands/npm-audit",
+					"keywords": "maintenance audit",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "npm audit",
+							"description": "Audits packages for known vulnerabilities"
+						},
+						{
+							"complexity": 2,
+							"code": "npm audit –-audit-level=<level>",
+							"description": "Audits packages for vulnerabilities with a severity level of <level>"
+						},
+						{
+							"complexity": 2,
+							"code": "npm audit fix",
+							"description": "Audits packages for known vulnerabilities and automatically fixes them"
+						}
+					]
+				}
+			]
+		}
+	]
+}

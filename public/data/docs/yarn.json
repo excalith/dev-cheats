@@ -90,7 +90,7 @@
 				},
 				{
 					"name": "remove",
-					"description": "Installs a package and any packages that it depends on",
+					"description": "Removes a package and any packages that it depends on",
 					"url": "https://classic.yarnpkg.com/en/docs/cli/remove",
 					"keywords": "dependency add",
 					"complexity": 0,
