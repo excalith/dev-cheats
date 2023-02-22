@@ -4,15 +4,16 @@
 
 The following is a set of guidelines for contributing to this repository.
 
-- [Code of Conduct](#code-of-conduct)
-- [Feature Requests](#feature-requests)
-- [Reporting Bugs](#reporting-bugs)
-- [Contributing To Source Code](#contributing-to-source-code)
-  - [New Documents](#new-documents)
-  - [New Features / Enhancements](#new-features--enhancements)
-  - [Commit and PR Guidelines](#commit-and-pr-guidelines)
-    - [Commit Messages](#commit-messages)
-    - [Pull Requests](#pull-requests)
+- [Contributing To Dev Cheats](#contributing-to-dev-cheats)
+  - [Code of Conduct](#code-of-conduct)
+  - [Feature Requests](#feature-requests)
+  - [Reporting Bugs](#reporting-bugs)
+  - [Contributing To Source Code](#contributing-to-source-code)
+    - [New Documents](#new-documents)
+    - [New Features / Enhancements](#new-features--enhancements)
+    - [Commit and PR Guidelines](#commit-and-pr-guidelines)
+      - [Commit Messages](#commit-messages)
+      - [Pull Requests](#pull-requests)
 
 ## Code of Conduct
 
@@ -37,7 +38,9 @@ Before creating bug reports, please perform a [cursory search on issues](https:/
 
 In order to contribute to the source of the project
 
-1. Fork the repository and create a new branch for your feature or enhancement.
+1. Fork the repository and create a new branch for your feature or enhancement `kebab-case` for the branch name
+   - For new documents, please use the `docs-app-name` as the branch name.
+   - For features or enhancements, please use the `feat-feat-name` as the branch name.
 2. Use [commit messages](#commit-messages) guideline for your commits.
 3. Send a pull request to the `main` branch using the [pull request](#pull-requests) guideline.
 

@@ -10,6 +10,8 @@ const Search = ({ slug, complexityOptions }) => {
 	// Check cookies and apply complexity filter
 	useEffect(() => {
 		if (!slug) return
+		if (complexityOptions === undefined) return
+		if (complexityOptions.length === 0) return
 
 		if (hasCookie(`${slug}-complexity`)) {
 			const complexityValue = getCookie(`${slug}-complexity`)
@@ -58,18 +60,20 @@ const Search = ({ slug, complexityOptions }) => {
 				autoFocus
 				ref={searchElement}
 			/>
-			<select
-				className="h-full px-4 font-sans rounded-lg outline-none w-25 p-5text-large bg-background"
-				onChange={changeComplexity}
-				ref={complexityElement}>
-				{complexityOptions.map((item, index) => {
-					return (
-						<option key={index} value={index}>
-							{item}
-						</option>
-					)
-				})}
-			</select>
+			{complexityOptions && complexityOptions.length > 0 && (
+				<select
+					className="h-full px-4 font-sans rounded-lg outline-none w-25 p-5text-large bg-background"
+					onChange={changeComplexity}
+					ref={complexityElement}>
+					{complexityOptions.map((item, index) => {
+						return (
+							<option key={index} value={index}>
+								{item}
+							</option>
+						)
+					})}
+				</select>
+			)}
 		</div>
 	)
 }

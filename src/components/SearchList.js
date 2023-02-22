@@ -68,16 +68,6 @@ const SearchList = () => {
 		} else getRecents()
 	}
 
-	const handleBlur = () => {
-		// Dirty fix for suggestions not disappearing before clicking on them
-		setTimeout(
-			function () {
-				setSuggestions("")
-			}.bind(this),
-			100
-		)
-	}
-
 	const getSuggestions = (value) => {
 		let matches = []
 
@@ -104,46 +94,46 @@ const SearchList = () => {
 	}
 
 	return (
-		<>
-			<div className="relative inline-block w-full drop-shadow-2xl">
-				<input
-					className="w-full h-16 px-4 font-sans text-xl rounded-lg outline-none input bg-cardBackground"
-					type="text"
-					placeholder="Search Database"
-					value={input}
-					onChange={handleChange}
-					onFocus={handleFocus}
-					onBlur={handleBlur}
-					ref={searchElement}
-				/>
-				{suggestions?.length > 0 ? (
-					<div className="absolute w-full p-2 rounded-b-lg suggestion-wrapper top-14 border-t-1 border-background bg-cardBackground">
-						{isRecents && (
-							<div className="flex h-10 md-4">
-								<span className="h-8 pt-2 pl-3 font-medium grow">
-									Recent Searches
-								</span>
-								<span
-									className="inline-block p-2 text-sm align-middle rounded-lg cursor-pointer h-9 right hover:bg-red"
-									onClick={handleClearRecents}>
-									Clear Recents
-								</span>
+		<div className="absolute inline-block w-full px-4 drop-shadow-2xl ">
+			<input
+				className="w-full h-16 px-4 font-sans text-xl rounded-lg outline-none bg-cardBackground"
+				type="text"
+				placeholder="Search Database"
+				value={input}
+				onChange={handleChange}
+				onFocus={handleFocus}
+				ref={searchElement}
+			/>
+			{suggestions?.length > 0 ? (
+				<div className="relative w-full p-2 rounded-b-lg overflow-y-clip -top-2 max-h-72 suggestion-wrapper border-t-1 border-background bg-cardBackground">
+					{isRecents && (
+						<div
+							className={`flex h-10 md-4 ${
+								isRecents && "visible"
+							}`}>
+							<span className="h-8 pt-2 pl-3 font-medium grow">
+								Recent Searches
+							</span>
+							<span
+								className="inline-block p-2 text-sm align-middle rounded-lg cursor-pointer h-9 right hover:bg-red"
+								onClick={handleClearRecents}>
+								Clear Recents
+							</span>
+						</div>
+					)}
+					{suggestions.map((item, index) => {
+						return (
+							<div
+								className="w-full p-3 transition duration-300 ease-in-out delay-150 rounded-lg cursor-pointer suggestions drop-shadow-2xl hover:-translate-1 hover:scale-110 hover:bg-blue hover:text-white"
+								key={index}
+								onClick={() => selectValue(item)}>
+								{item}
 							</div>
-						)}
-						{suggestions.map((item, index) => {
-							return (
-								<div
-									className="w-full p-3 transition duration-300 ease-in-out delay-150 rounded-lg cursor-pointer suggestions drop-shadow-2xl hover:-translate-1 hover:scale-110 hover:bg-blue hover:text-white"
-									key={index}
-									onClick={() => selectValue(item)}>
-									{item}
-								</div>
-							)
-						})}
-					</div>
-				) : null}
-			</div>
-		</>
+						)
+					})}
+				</div>
+			) : null}
+		</div>
 	)
 }
 
