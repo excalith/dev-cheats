@@ -24,7 +24,7 @@ With Dev Cheats you can;
 - If available, click any command name to launch the original documentation
 - Show and hide commands depending on their complexity through the menu from `Basic` to `Advanced`
   
-Also includes `strict` cookies to remember your preferences next time you launch the app. Nothing is stored on the server
+Also includes local storage to remember your preferences next time you launch the app. Nothing is stored on the server!
 
 ## Demo
 
