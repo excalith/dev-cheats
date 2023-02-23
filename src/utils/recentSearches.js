@@ -1,13 +1,18 @@
-import { hasCookie, getCookie, setCookie, deleteCookie } from "cookies-next"
+import {
+	hasStorage,
+	getStorage,
+	setStorage,
+	deleteStorage
+} from "@/utils/storage"
 
 function addToRecents(key) {
 	const maxRecentSearches = 5
 	let recents = []
 
-	const hasRecentSearches = hasCookie("recent-searches")
+	const hasRecentSearches = hasStorage("recent-searches")
 
 	if (hasRecentSearches) {
-		recents = JSON.parse(getCookie("recent-searches"))
+		recents = JSON.parse(getStorage("recent-searches"))
 	}
 
 	const index = recents.indexOf(key)
@@ -26,20 +31,20 @@ function addToRecents(key) {
 }
 
 function getAllRecents() {
-	const hasRecentSearches = hasCookie("recent-searches")
+	const hasRecentSearches = hasStorage("recent-searches")
 	if (hasRecentSearches) {
-		return JSON.parse(getCookie("recent-searches"))
+		return JSON.parse(getStorage("recent-searches"))
 	}
 
 	return []
 }
 
 function clearRecents() {
-	deleteCookie("recent-searches")
+	deleteStorage("recent-searches")
 }
 
 function saveCookie(name, data) {
-	setCookie(name, data, {
+	setStorage(name, data, {
 		secure: true,
 		sameSite: "strict"
 	})

@@ -1,20 +1,20 @@
 import React, { useRef, useEffect } from "react"
-import { hasCookie, getCookie, setCookie } from "cookies-next"
 import { publish } from "../utils/event"
 import { openLink } from "@/utils/openLink"
+import { hasStorage, setStorage, getStorage } from "@/utils/storage"
 
 const Search = ({ slug, complexityOptions }) => {
 	const searchElement = useRef(null)
 	const complexityElement = useRef(null)
 
-	// Check cookies and apply complexity filter
+	// Check local storage and apply complexity filter
 	useEffect(() => {
 		if (!slug) return
 		if (complexityOptions === undefined) return
 		if (complexityOptions.length === 0) return
 
-		if (hasCookie(`${slug}-complexity`)) {
-			const complexityValue = getCookie(`${slug}-complexity`)
+		if (hasStorage(`${slug}-complexity`)) {
+			const complexityValue = getStorage(`${slug}-complexity`)
 			complexityElement.current.value = complexityValue
 			publish("complexityChange", complexityValue)
 		}
@@ -30,10 +30,7 @@ const Search = ({ slug, complexityOptions }) => {
 	const changeComplexity = (e) => {
 		const complexityValue = e.target.value
 		complexityElement.current.value = complexityValue
-		setCookie(`${slug}-complexity`, complexityValue, {
-			secure: true,
-			sameSite: "strict"
-		})
+		setStorage(`${slug}-complexity`, complexityValue)
 		publish("complexityChange", complexityValue)
 	}
 
