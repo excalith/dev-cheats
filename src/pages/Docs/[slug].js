@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useRouter } from "next/router"
 import { NextSeo } from "next-seo"
-import axios from "axios"
-import useSWR from "swr"
 
 import { addToRecents } from "@/utils/recentSearches"
 import { subscribe, unsubscribe } from "@/utils/event"
@@ -12,21 +9,23 @@ import Card from "@/components/Card"
 import Footer from "@/components/Footer"
 import Home from "@/pages"
 
-const address = "/api/docs"
-const fetcher = (url, docs) =>
-	axios.get(`${url}?docs=${docs}`).then((res) => res.data)
+const dev = process.env.NODE_ENV !== "production"
+export const server = dev
+	? "http://localhost:3000"
+	: "https://dev-cheats.vercel.app"
 
-const Docs = () => {
-	// Get router query
-	const router = useRouter()
-	const { slug } = router.query
+export async function getServerSideProps(context) {
+	const { slug } = context.query
+	let data = null
 
-	// Fetch data from API
-	const { data, error } = useSWR(
-		slug ? [address, slug] : null,
-		slug ? fetcher : null
-	)
+	const res = await fetch(`${server}/api/docs?docs=${slug}`)
+	const status = res.status
+	if (res.status === 200) data = await res.json()
 
+	return { props: { slug, data, status } }
+}
+
+const Docs = ({ slug, data, status }) => {
 	// States
 	const [search, setSearch] = useState("")
 	const [complexity, setComplexity] = useState(0)
@@ -36,31 +35,28 @@ const Docs = () => {
 		subscribe("complexityChange", (e) => setComplexity(e.detail))
 		subscribe("searchChange", (e) => setSearch(e.detail))
 
+		// Add to recent searches
+		if (status === 200) addToRecents(slug)
+
 		return () => {
 			unsubscribe("complexityChange", (e) => setComplexity(e.detail))
 			unsubscribe("searchChange", (e) => setSearch(e.detail))
 		}
-	}, [slug])
+	}, [])
 
 	// Handle the error state
-	if (error) {
+	if (status !== 200) {
 		return <Home errorMessage={slug} />
 	}
 
 	// Handle the loading state
 	if (!data) return <Loader />
 
-	let parsedData = JSON.parse(data)
-	if (!parsedData) return <Loader />
-
-	// Add to recent searches
-	addToRecents(slug)
-
 	// Parse the data
-	let meta = parsedData.meta
-	let categories = parsedData.categories
-	let complexityOptions = parsedData.complexity
-	let contribs = parsedData.meta.contribs
+	let meta = data.meta
+	let categories = data.categories
+	let complexityOptions = data.complexity
+	let contribs = data.meta.contribs
 
 	return (
 		<main className="container mx-auto">
