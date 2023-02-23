@@ -1,14 +1,19 @@
 import test from "ava"
-import { fileExists, getList, getFilesInDir } from "./helpers/files.mjs"
-import { validateJSON, validateDocument } from "./helpers/data.mjs"
+import {
+	fileExists,
+	getList,
+	getFilesInDir,
+	validateJSON,
+	validateDocument
+} from "./helpers/files.mjs"
 
-test.serial("list.json exists", async (t) => {
+test.serial("List database exists", async (t) => {
 	const hasFile = await fileExists("list.json")
 	t.true(hasFile)
 })
 
-test.serial("list.json is valid JSON", async (t) => {
-	const isValid = await validateJSON(await getList())
+test.serial("List database is valid", async (t) => {
+	const { isValid } = await validateJSON(await getList())
 	t.true(isValid)
 })
 
@@ -50,14 +55,15 @@ test.serial("All documents are valid", async (t) => {
 	)
 
 	t.deepEqual(
-		failedResults.errors,
+		failedResults,
 		[],
 		`\n${failedResults.length} issues:   
 ${failedResults
 	.map(
 		(result) =>
 			// eslint-disable-next-line prettier/prettier
-			"• " + result.file +
+			"• " +
+			result.file +
 			":\n" +
 			result.errors.map((error) => "  " + error).join("\n")
 	)
