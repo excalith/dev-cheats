@@ -1,9 +1,9 @@
 name: Test Dev Cheats
 on:
   push:
-    branches: [ feat-tests ]
+    branches: [ main ]
   pull_request:
-    branches: [ feat-tests ]
+    branches: [ main ]
 jobs:
   build:
 
