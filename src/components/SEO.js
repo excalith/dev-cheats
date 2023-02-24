@@ -1,5 +1,7 @@
 import Head from "next/head"
 
+const url = "https://dev-cheats.vercel.app"
+
 const SEO = ({ title, description }) => {
 	return (
 		<Head>
@@ -12,13 +14,20 @@ const SEO = ({ title, description }) => {
 			<meta name="author" content="Can Cellek (excalith)" />
 			<meta
 				property="image"
-				content={`https://dev-cheats-git-feat-seo-excalith.vercel.app/api/v1/og?desc=${description}`}
+				content={`${url}/api/v1/og?desc=${description}`}
 			/>
 
 			<meta charset="UTF-8" />
 			<meta
 				name="viewport"
 				content="width=device-width, initial-scale=1.0"
+			/>
+
+			<meta itemprop="name" content={`${title} • Dev Cheats`} />
+			<meta itemprop="description" content={description} />
+			<meta
+				itemprop="image"
+				content={`${url}/api/v1/og?desc=${description}`}
 			/>
 
 			<meta
@@ -33,10 +42,12 @@ const SEO = ({ title, description }) => {
 			/>
 			<meta
 				property="og:image"
-				content={`https://dev-cheats-git-feat-seo-excalith.vercel.app/api/v1/og?desc=${description}`}
+				content={`${url}/api/v1/og?desc=${description}`}
 				key="image"
 			/>
+			<meta property="og:type" content="website" />
 
+			<meta name="twitter:card" content="summary_large_image" />
 			<meta
 				name="twitter:title"
 				content={`${title} • Dev Cheats`}
@@ -49,7 +60,7 @@ const SEO = ({ title, description }) => {
 			/>
 			<meta
 				name="twitter:image"
-				content={`https://dev-cheats-git-feat-seo-excalith.vercel.app/api/v1/og?desc=${description}`}
+				content={`${url}/api/v1/og?desc=${description}`}
 				key="image"
 			/>
 
