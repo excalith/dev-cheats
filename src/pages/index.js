@@ -1,5 +1,5 @@
 import React from "react"
-import { NextSeo } from "next-seo"
+import SEO from "@/components/SEO"
 import Logo from "@/components/Logo"
 import SearchList from "@/components/SearchList"
 import Alert from "@/components/Alert"
@@ -8,10 +8,10 @@ import Footer from "@/components/Footer"
 export default function Home({ errorMessage }) {
 	return (
 		<>
-			<NextSeo
+			<SEO
 				title={"Home • Dev Cheats"}
 				description={
-					"Dev Cheats is a collection of cheatsheets for developers. It's a place where you can find all the cheatsheets you need in one place."
+					"Dev Cheats is a community-driven collection of cheatsheets for developers. It's a place where you can find all the cheatsheets you need in one place."
 				}
 			/>
 			<div className="absolute w-full max-w-md transform -translate-x-1/2 -translate-y-1/3 top-1/3 left-1/2">
