@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { NextSeo } from "next-seo"
+import absoluteUrl from "next-absolute-url"
 import axios from "axios"
 import { addToRecents } from "@/utils/recentSearches"
 import { subscribe, unsubscribe } from "@/utils/event"
@@ -9,30 +10,25 @@ import Card from "@/components/Card"
 import Footer from "@/components/Footer"
 import Home from "@/pages"
 
-const dev = process.env.NODE_ENV !== "production"
-const server = dev
-	? "https://localhost:3000"
-	: "https://dev-cheats-git-feat-serverside-improvements-excalith.vercel.app"
-
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ req, params }) {
 	const { slug } = params
+	const { protocol, host } = absoluteUrl(req, "localhost:3000")
+	let status = null
+	let data = null
 
-	const res = await axios
-		.get(`http://localhost:3000/api/docs?docs=${slug}`)
+	console.log(`${protocol}//${host}/api/docs?docs=${slug}`)
+
+	await axios
+		.get(`${protocol}//${host}/api/docs?docs=${slug}`)
 		.then((response) => {
-			// console.log(response.status)
-			// console.log(response.statusText)
-			return response
+			status = response.status
+			data = response.data
 		})
 		.catch((error) => {
-			// console.log(error.response.status)
-			// console.log(error.response.statusText)
-			return error.response
+			console.log(error)
+			status = 500
+			data = null
 		})
-
-	const status = await res.status
-	const data = await res.data
-	// if (res.status === 200) data = await res.json()
 
 	return { props: { slug, data, status } }
 }
