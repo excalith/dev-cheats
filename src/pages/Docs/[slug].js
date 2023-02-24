@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { NextSeo } from "next-seo"
-
+import axios from "axios"
 import { addToRecents } from "@/utils/recentSearches"
 import { subscribe, unsubscribe } from "@/utils/event"
 import Loader from "@/components/Loader"
@@ -16,11 +16,18 @@ export const server = dev
 
 export async function getServerSideProps(context) {
 	const { slug } = context.query
-	let data = null
 
-	const res = await fetch(`${server}/api/docs?docs=${slug}`)
+	const res = await axios
+		.get(`${server}/api/docs?docs=${slug}`)
+		.then((response) => {
+			// console.log(response.status)
+			// console.log(response.statusText)
+			return response
+		})
+
 	const status = res.status
-	if (res.status === 200) data = await res.json()
+	const data = res.data
+	// if (res.status === 200) data = await res.json()
 
 	return { props: { slug, data, status } }
 }
