@@ -12,7 +12,7 @@ const SEO = ({ title, description }) => {
 			<meta name="author" content="Can Cellek (excalith)" />
 			<meta
 				property="image"
-				content={`https://inthepocket.tech/api/og-image?name=${title}&desc=${description}`}
+				content={`https://dev-cheats-git-feat-seo-excalith.vercel.app/api/v1/og?desc=${description}`}
 			/>
 
 			<meta charset="UTF-8" />
@@ -33,7 +33,7 @@ const SEO = ({ title, description }) => {
 			/>
 			<meta
 				property="og:image"
-				content={`https://inthepocket.tech/api/og-image?name=${title}&desc=${description}`}
+				content={`https://dev-cheats-git-feat-seo-excalith.vercel.app/api/v1/og?desc=${description}`}
 				key="image"
 			/>
 
@@ -49,7 +49,7 @@ const SEO = ({ title, description }) => {
 			/>
 			<meta
 				name="twitter:image"
-				content={`https://inthepocket.tech/api/og-image?name=${title}&desc=${description}`}
+				content={`https://dev-cheats-git-feat-seo-excalith.vercel.app/api/v1/og?desc=${description}`}
 				key="image"
 			/>
 

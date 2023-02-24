@@ -17,6 +17,7 @@
 	},
 	"dependencies": {
 		"@next/font": "^13.1.6",
+		"@vercel/og": "^0.1.0",
 		"axios": "^1.3.3",
 		"next": "13.1.4",
 		"next-absolute-url": "^1.2.2",
