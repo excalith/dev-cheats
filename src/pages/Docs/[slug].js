@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { useRouter } from "next/router"
 import { NextSeo } from "next-seo"
+import absoluteUrl from "next-absolute-url"
 import axios from "axios"
-import useSWR from "swr"
-
 import { addToRecents } from "@/utils/recentSearches"
 import { subscribe, unsubscribe } from "@/utils/event"
 import Loader from "@/components/Loader"
@@ -12,21 +10,28 @@ import Card from "@/components/Card"
 import Footer from "@/components/Footer"
 import Home from "@/pages"
 
-const address = "/api/docs"
-const fetcher = (url, docs) =>
-	axios.get(`${url}?docs=${docs}`).then((res) => res.data)
+export async function getServerSideProps({ req, params }) {
+	const { slug } = params
+	const { protocol, host } = absoluteUrl(req, "localhost:3000")
+	let status = null
+	let data = null
 
-const Docs = () => {
-	// Get router query
-	const router = useRouter()
-	const { slug } = router.query
+	await axios
+		.get(`${protocol}//${host}/api/v1/docs?doc=${slug}`)
+		.then((response) => {
+			status = response.status
+			data = response.data
+		})
+		.catch((error) => {
+			console.log(error)
+			status = 500
+			data = null
+		})
 
-	// Fetch data from API
-	const { data, error } = useSWR(
-		slug ? [address, slug] : null,
-		slug ? fetcher : null
-	)
+	return { props: { slug, data, status } }
+}
 
+const Docs = ({ slug, data, status }) => {
 	// States
 	const [search, setSearch] = useState("")
 	const [complexity, setComplexity] = useState(0)
@@ -36,31 +41,28 @@ const Docs = () => {
 		subscribe("complexityChange", (e) => setComplexity(e.detail))
 		subscribe("searchChange", (e) => setSearch(e.detail))
 
+		// Add to recent searches
+		if (status === 200) addToRecents(slug)
+
 		return () => {
 			unsubscribe("complexityChange", (e) => setComplexity(e.detail))
 			unsubscribe("searchChange", (e) => setSearch(e.detail))
 		}
-	}, [slug])
+	}, [])
 
 	// Handle the error state
-	if (error) {
+	if (status !== 200) {
 		return <Home errorMessage={slug} />
 	}
 
 	// Handle the loading state
 	if (!data) return <Loader />
 
-	let parsedData = JSON.parse(data)
-	if (!parsedData) return <Loader />
-
-	// Add to recent searches
-	addToRecents(slug)
-
 	// Parse the data
-	let meta = parsedData.meta
-	let categories = parsedData.categories
-	let complexityOptions = parsedData.complexity
-	let contribs = parsedData.meta.contribs
+	let meta = data.meta
+	let categories = data.categories
+	let complexityOptions = data.complexity
+	let contribs = data.meta.contribs
 
 	return (
 		<main className="container mx-auto">
