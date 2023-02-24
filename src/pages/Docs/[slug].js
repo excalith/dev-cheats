@@ -10,23 +10,28 @@ import Footer from "@/components/Footer"
 import Home from "@/pages"
 
 const dev = process.env.NODE_ENV !== "production"
-export const server = dev
-	? "http://localhost:3000"
-	: "https://dev-cheats.vercel.app"
+const server = dev
+	? "https://localhost:3000"
+	: "https://dev-cheats-git-feat-serverside-improvements-excalith.vercel.app"
 
-export async function getServerSideProps(context) {
-	const { slug } = context.query
+export async function getServerSideProps({ params }) {
+	const { slug } = params
 
 	const res = await axios
-		.get(`${server}/api/docs?docs=${slug}`)
+		.get(`http://localhost:3000/api/docs?docs=${slug}`)
 		.then((response) => {
 			// console.log(response.status)
 			// console.log(response.statusText)
 			return response
 		})
+		.catch((error) => {
+			// console.log(error.response.status)
+			// console.log(error.response.statusText)
+			return error.response
+		})
 
-	const status = res.status
-	const data = res.data
+	const status = await res.status
+	const data = await res.data
 	// if (res.status === 200) data = await res.json()
 
 	return { props: { slug, data, status } }
