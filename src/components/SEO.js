@@ -5,11 +5,14 @@ const SEO = ({ title, description }) => {
 		<Head>
 			<title>{`${title} • Dev Cheats`}</title>
 			<meta name="description" content={description} />
-			<meta name="keywords" content="HTML, CSS, JavaScript, NextJS" />
+			<meta
+				name="keywords"
+				content="developer cheat sheet command documentation example usage"
+			/>
 			<meta name="author" content="Can Cellek (excalith)" />
 			<meta
 				property="image"
-				content="https://inthepocket.tech/api/og-image?name=Next.js&desc=adopt"
+				content={`https://inthepocket.tech/api/og-image?name=${title}&desc=${description}`}
 			/>
 
 			<meta charset="UTF-8" />
@@ -30,7 +33,7 @@ const SEO = ({ title, description }) => {
 			/>
 			<meta
 				property="og:image"
-				content="https://inthepocket.tech/api/og-image?name=Next.js&desc=adopt"
+				content={`https://inthepocket.tech/api/og-image?name=${title}&desc=${description}`}
 				key="image"
 			/>
 
@@ -46,7 +49,7 @@ const SEO = ({ title, description }) => {
 			/>
 			<meta
 				name="twitter:image"
-				content="https://inthepocket.tech/api/og-image?name=Next.js&desc=adopt"
+				content={`https://inthepocket.tech/api/og-image?name=${title}&desc=${description}`}
 				key="image"
 			/>
 

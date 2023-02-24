@@ -9,7 +9,7 @@ export default function Home({ errorMessage }) {
 	return (
 		<>
 			<SEO
-				title={"Home • Dev Cheats"}
+				title={"Home"}
 				description={
 					"Dev Cheats is a community-driven collection of cheatsheets for developers. It's a place where you can find all the cheatsheets you need in one place."
 				}
