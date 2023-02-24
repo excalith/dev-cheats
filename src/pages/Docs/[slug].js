@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { NextSeo } from "next-seo"
 import absoluteUrl from "next-absolute-url"
 import axios from "axios"
 import { addToRecents } from "@/utils/recentSearches"
 import { subscribe, unsubscribe } from "@/utils/event"
+import SEO from "@/components/SEO"
 import Loader from "@/components/Loader"
 import Search from "@/components/Search"
 import Card from "@/components/Card"
@@ -66,8 +66,8 @@ const Docs = ({ slug, data, status }) => {
 
 	return (
 		<main className="container mx-auto">
-			<NextSeo
-				title={meta.title + " • Dev Cheats"}
+			<SEO
+				title={meta.title}
 				description={"Commands And Usage Examples For " + meta.title}
 			/>
 
