@@ -3,6 +3,10 @@
 import path from "path"
 import { promises as fs } from "fs"
 
+// Find the absolute path of the json directory
+const dataDirectory = path.join(process.cwd(), "public/data/")
+const listPath = path.join(dataDirectory, "/list.json")
+
 export default async function handler(req, res) {
 	try {
 		// Only GET method is allowed
@@ -28,36 +32,28 @@ export default async function handler(req, res) {
 }
 
 async function getDocument(req, res) {
-	// Set default docsuage
-	let docs = req.query.doc
+	// Get file path for document json
+	const filePath = path.join(dataDirectory, `/docs/${req.query.doc}.json`)
 
-	// Find the absolute path of the json directory
-	const dataDirectory = path.join(process.cwd(), "public/data/docs")
-	const filePath = path.join(dataDirectory, `${docs}.json`)
+	try {
+		// Read the json data file data.json
+		const fileContents = await fs.readFile(filePath, "utf8")
 
-	// Read the json data file data.json
-	const fileContents = await fs.readFile(filePath, "utf8")
-
-	if (fileContents === undefined) {
-		res.status(404).end()
-		return
+		// Return contents as JSON with 200 status
+		return res.status(200).json(JSON.parse(fileContents))
+	} catch (error) {
+		return res.status(404).end()
 	}
-
-	return res.status(200).json(JSON.parse(fileContents))
 }
 
 async function getDocumentList(res) {
-	//Find the absolute path of the json directory
-	const jsonDirectory = path.join(process.cwd(), "public/data/")
+	try {
+		// Read the json data file list.json
+		const fileContents = await fs.readFile(listPath, "utf8")
 
-	//Read the json data file data.json
-	const fileContents = await fs.readFile(jsonDirectory + "list.json", "utf8")
-
-	if (fileContents === undefined) {
-		res.status(404).end()
-		return
+		// Return contents as JSON with 200 status
+		return res.status(200).json(JSON.parse(fileContents))
+	} catch (error) {
+		return res.status(404).end()
 	}
-
-	//Return the content of the data file in json format
-	res.status(200).json(JSON.parse(fileContents))
 }
