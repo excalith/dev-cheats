@@ -10,10 +10,10 @@ const SearchList = () => {
 	const searchElement = useRef(null)
 
 	useEffect(() => {
-		fetch("/api/list")
+		fetch("/api/v1/docs/")
 			.then((res) => res.json())
 			.then((data) => {
-				setData(JSON.parse(data))
+				setData(data)
 			})
 
 		// Focus on search bar

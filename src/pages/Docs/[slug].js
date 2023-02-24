@@ -16,10 +16,8 @@ export async function getServerSideProps({ req, params }) {
 	let status = null
 	let data = null
 
-	console.log(`${protocol}//${host}/api/docs?docs=${slug}`)
-
 	await axios
-		.get(`${protocol}//${host}/api/docs?docs=${slug}`)
+		.get(`${protocol}//${host}/api/v1/docs?doc=${slug}`)
 		.then((response) => {
 			status = response.status
 			data = response.data
