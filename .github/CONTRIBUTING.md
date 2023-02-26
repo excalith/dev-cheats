@@ -6,8 +6,10 @@ The following is a set of guidelines for contributing to this repository.
 
 - [Contributing To Dev Cheats](#contributing-to-dev-cheats)
   - [Code of Conduct](#code-of-conduct)
-  - [Reporting Bugs](#reporting-bugs)
-  - [Feature Requests](#feature-requests)
+  - [Issues](#issues)
+    - [Reporting Bugs](#reporting-bugs)
+    - [Documentation Requests](#documentation-requests)
+    - [Feature Requests](#feature-requests)
   - [Contributing To Source Code](#contributing-to-source-code)
     - [New Documents](#new-documents)
     - [New Features / Enhancements](#new-features--enhancements)
@@ -19,7 +21,8 @@ The following is a set of guidelines for contributing to this repository.
 
 This project and everyone participating in it is governed by the [Dev Cheats Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
-## Reporting Bugs
+## Issues
+### Reporting Bugs
 
 Before creating bug reports, please perform a [cursory search on issues](https://github.com/excalith/dev-cheats/issues) to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one. When you are creating a bug report, please include as many details as possible. Fill out the required template, the information it asks for will help maintainers resolve it faster.
 
@@ -34,7 +37,16 @@ To report a new issue, please follow these steps:
 
 > **Note:** If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
 
-## Feature Requests
+### Documentation Requests
+
+Before suggesting a documentation request, please perform a [cursory search on issues](https://github.com/excalith/dev-cheats/issues) to see if the suggestion has already been submitted. When you are creating a documentation request, select the documentation template and fill out the fields.
+
+- Provide the **name** of the app / tool after the prefix of `[DOCS]` for title
+- Provide the **official website** or **repository link** of the app / tool
+- Provide the **official documentation** link if exists
+- If any, provide **additional context** or **information** that may be useful for the documentation
+
+### Feature Requests
 
 Before suggesting an enhancement or feature request, please perform a [cursory search on discussions](https://github.com/excalith/dev-cheats/discussions/categories/ideas) to see if the suggestion has already been submitted.
 

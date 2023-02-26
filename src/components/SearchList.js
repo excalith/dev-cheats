@@ -141,7 +141,7 @@ const SearchList = () => {
 					{input.length > 0 && (
 						<div className="w-full py-2 text-center">
 							<p>
-								No documentation found for{" "}
+								No cheatsheet found for{" "}
 								<span className="font-medium text-red">
 									{input}
 								</span>
@@ -150,7 +150,7 @@ const SearchList = () => {
 								You can request it from{" "}
 								<a
 									className="text-blue"
-									href="https://github.com/excalith/dev-cheats/issues/new?assignees=excalith&labels=enhancement&template=feature-request.md&title=%5BFEATURE%5D+"
+									href="https://github.com/excalith/dev-cheats/issues/new?assignees=&labels=documentation%2C+enhancement&template=documentation-request.md&title=%5BDOCS%5D+"
 									target="_blank"
 									rel="noopener noreferrer nofollow">
 									here
