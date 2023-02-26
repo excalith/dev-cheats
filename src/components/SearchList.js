@@ -105,7 +105,7 @@ const SearchList = () => {
 				ref={searchElement}
 			/>
 			{suggestions?.length > 0 ? (
-				<div className="relative w-full p-2 rounded-b-lg overflow-y-clip -top-2 max-h-72 suggestion-wrapper border-t-1 border-background bg-cardBackground">
+				<div className="relative w-full p-2 rounded-b-lg overflow-y-clip -top-2 max-h-72 border-t-1 border-background bg-cardBackground">
 					{isRecents && (
 						<div
 							className={`flex h-10 md-4 ${
@@ -132,7 +132,30 @@ const SearchList = () => {
 						)
 					})}
 				</div>
-			) : null}
+			) : (
+				<>
+					{input.length > 0 && (
+						<div className="w-full py-2 text-center">
+							<p>
+								No documentation found for{" "}
+								<span className="font-medium text-red">
+									{input}
+								</span>
+							</p>
+							<p>
+								You can request it from{" "}
+								<a
+									className="text-blue"
+									href="https://github.com/excalith/dev-cheats/issues/new?assignees=excalith&labels=enhancement&template=feature-request.md&title=%5BFEATURE%5D+"
+									target="_blank"
+									rel="noopener noreferrer nofollow">
+									here
+								</a>
+							</p>
+						</div>
+					)}
+				</>
+			)}
 		</div>
 	)
 }
