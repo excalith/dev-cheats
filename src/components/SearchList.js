@@ -27,8 +27,10 @@ const SearchList = () => {
 	useEffect(() => {
 		const handleKeyDown = (event) => {
 			if (event.key === "Enter") {
-				if (suggestions.length === 0) return
-				openLink(suggestions[0], "_self")
+				if (input.length === 0) return
+
+				const query = suggestions.length > 0 ? suggestions[0] : input
+				openLink(query, "_self")
 			} else if (event.key === "Escape") {
 				clearSearch()
 			}
