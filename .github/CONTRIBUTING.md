@@ -6,8 +6,8 @@ The following is a set of guidelines for contributing to this repository.
 
 - [Contributing To Dev Cheats](#contributing-to-dev-cheats)
   - [Code of Conduct](#code-of-conduct)
-  - [Feature Requests](#feature-requests)
   - [Reporting Bugs](#reporting-bugs)
+  - [Feature Requests](#feature-requests)
   - [Contributing To Source Code](#contributing-to-source-code)
     - [New Documents](#new-documents)
     - [New Features / Enhancements](#new-features--enhancements)
@@ -19,20 +19,30 @@ The following is a set of guidelines for contributing to this repository.
 
 This project and everyone participating in it is governed by the [Dev Cheats Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
+## Reporting Bugs
+
+Before creating bug reports, please perform a [cursory search on issues](https://github.com/excalith/dev-cheats/issues) to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one. When you are creating a bug report, please include as many details as possible. Fill out the required template, the information it asks for will help maintainers resolve it faster.
+
+To report a new issue, please follow these steps:
+
+- **Use a clear and descriptive title** for the issue to identify the problem after the prefix of `[BUG]`
+- Use the **bug report template** and **fill out** the required fields.
+- **Describe the exact steps which reproduce the problem** in as many details as possible. For example, start by explaining how you started the app, e.g. which command exactly you used in the terminal. When listing steps, **don't just say what you did, but explain how you did it**.
+- Explain the **expected behaviour**
+- Provide your **OS** and **Browser** information.
+- Add any **additional Context** about the problem here such as console logs and screenshots. If you do not know how to get the console logs, please check your browser's documentation on how to get the console logs. If you cannot find the console logs, please mention that in the issue so that maintainers can help you get the logs.
+
+> **Note:** If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
+
 ## Feature Requests
 
 Before suggesting an enhancement or feature request, please perform a [cursory search on discussions](https://github.com/excalith/dev-cheats/discussions/categories/ideas) to see if the suggestion has already been submitted.
 
 - **User a clear descriptive title** for the suggestion
 - **Describe the current behavior** and **explain which behavior you expected to see instead** and why
+- Provide any **additional context** for the enhancement or feature request if possible
 
 If maintainers approve your suggestion, the discussion will be converted to an issue and will be added to the backlog as an `enhancement`.
-
-## Reporting Bugs
-
-Before creating bug reports, please perform a [cursory search on issues](https://github.com/excalith/dev-cheats/issues) to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one. When you are creating a bug report, please include as many details as possible. Fill out the required template, the information it asks for will help maintainers resolve it faster.
-
-> **Note:** If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
 
 ## Contributing To Source Code
 
