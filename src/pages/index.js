@@ -27,15 +27,14 @@ export default function Home({ errorMessage }) {
 								</span>
 							</div>,
 							<div key="alert-contribute">
-								Please consider{" "}
+								You can request it from{" "}
 								<a
 									className="text-blue"
-									href="https://github.com/excalith/dev-cheats/issues/new/choose"
+									href="https://github.com/excalith/dev-cheats/issues/new?assignees=&labels=documentation%2C+enhancement&template=documentation-request.md&title=%5BDOCS%5D+"
 									target="_blank"
 									rel="noopener noreferrer nofollow">
-									contributing
-								</a>{" "}
-								to the project
+									here
+								</a>
 							</div>
 						]}
 						type="danger"
