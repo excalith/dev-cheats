@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { openLink } from "@/utils/openLink"
 import { getAllRecents, clearRecents } from "@/utils/recentSearches"
+import { useTypewriter } from "@/hooks/useTypewriter"
 
 const SearchList = () => {
 	const [input, setInput] = useState("")
@@ -8,6 +9,7 @@ const SearchList = () => {
 	const [isRecents, setIsRecents] = useState(false)
 	const [data, setData] = useState(null)
 	const searchElement = useRef(null)
+	const { word } = useTypewriter(["git", "yarn", "npm"], 130, 6)
 
 	useEffect(() => {
 		fetch("/api/v1/docs/")
@@ -27,8 +29,10 @@ const SearchList = () => {
 	useEffect(() => {
 		const handleKeyDown = (event) => {
 			if (event.key === "Enter") {
-				if (suggestions.length === 0) return
-				openLink(suggestions[0], "_self")
+				if (input.length === 0) return
+
+				const query = suggestions.length > 0 ? suggestions[0] : input
+				openLink(query, "_self")
 			} else if (event.key === "Escape") {
 				clearSearch()
 			}
@@ -98,14 +102,14 @@ const SearchList = () => {
 			<input
 				className="w-full h-16 px-4 font-sans text-xl rounded-lg outline-none bg-cardBackground"
 				type="text"
-				placeholder="Search Database"
+				placeholder={`Search for ${word}`}
 				value={input}
 				onChange={handleChange}
 				onFocus={handleFocus}
 				ref={searchElement}
 			/>
 			{suggestions?.length > 0 ? (
-				<div className="relative w-full p-2 rounded-b-lg overflow-y-clip -top-2 max-h-72 suggestion-wrapper border-t-1 border-background bg-cardBackground">
+				<div className="relative w-full p-2 rounded-b-lg overflow-y-clip -top-2 max-h-72 border-t-1 border-background bg-cardBackground">
 					{isRecents && (
 						<div
 							className={`flex h-10 md-4 ${
@@ -132,7 +136,30 @@ const SearchList = () => {
 						)
 					})}
 				</div>
-			) : null}
+			) : (
+				<>
+					{input.length > 0 && (
+						<div className="w-full py-2 text-center">
+							<p>
+								No documentation found for{" "}
+								<span className="font-medium text-red">
+									{input}
+								</span>
+							</p>
+							<p>
+								You can request it from{" "}
+								<a
+									className="text-blue"
+									href="https://github.com/excalith/dev-cheats/issues/new?assignees=excalith&labels=enhancement&template=feature-request.md&title=%5BFEATURE%5D+"
+									target="_blank"
+									rel="noopener noreferrer nofollow">
+									here
+								</a>
+							</p>
+						</div>
+					)}
+				</>
+			)}
 		</div>
 	)
 }
