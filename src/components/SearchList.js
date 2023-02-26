@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { openLink } from "@/utils/openLink"
 import { getAllRecents, clearRecents } from "@/utils/recentSearches"
+import { useTypewriter } from "@/hooks/useTypewriter"
 
 const SearchList = () => {
 	const [input, setInput] = useState("")
@@ -8,6 +9,7 @@ const SearchList = () => {
 	const [isRecents, setIsRecents] = useState(false)
 	const [data, setData] = useState(null)
 	const searchElement = useRef(null)
+	const { word } = useTypewriter(["git", "yarn", "npm"], 130, 6)
 
 	useEffect(() => {
 		fetch("/api/v1/docs/")
@@ -100,7 +102,7 @@ const SearchList = () => {
 			<input
 				className="w-full h-16 px-4 font-sans text-xl rounded-lg outline-none bg-cardBackground"
 				type="text"
-				placeholder="Search Database"
+				placeholder={`Search for ${word}`}
 				value={input}
 				onChange={handleChange}
 				onFocus={handleFocus}
