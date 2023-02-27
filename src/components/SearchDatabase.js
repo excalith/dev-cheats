@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react"
 import { openLink } from "@utils/openLink"
-import { getAllRecents, clearRecents } from "@utils/recentSearches"
 import { useTypewriter } from "@hooks/useTypewriter"
 import useFetch from "@hooks/useFetch"
+import { useLocalStorage } from "@/hooks/useLocalStorage"
 
 const SearchDatabase = () => {
 	const [input, setInput] = useState("")
@@ -11,6 +11,8 @@ const SearchDatabase = () => {
 	const [data] = useFetch("/api/v1/docs/")
 	const searchElement = useRef(null)
 	const { word } = useTypewriter(["docker", "git", "yarn", "npm"], 130, 6)
+
+	const [recents, setRecents] = useLocalStorage("recent-searches", [])
 
 	useEffect(() => {
 		// Focus on search bar
@@ -83,12 +85,12 @@ const SearchDatabase = () => {
 	}
 
 	const getRecents = () => {
-		setSuggestions(getAllRecents())
+		setSuggestions(recents)
 		setIsRecents(true)
 	}
 
 	const handleClearRecents = () => {
-		clearRecents()
+		setRecents([])
 		clearSearch()
 	}
 
