@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import absoluteUrl from "next-absolute-url"
 import axios from "axios"
 import { useRecents } from "@/hooks/useRecents"
-import { subscribe, unsubscribe } from "@utils/event"
 import SEO from "@components/SEO"
 import Loader from "@components/Loader"
 import Search from "@components/Search"
@@ -35,20 +34,13 @@ const Docs = ({ slug, data, status }) => {
 	// States
 	const [searchValue, setSearchValue] = useState("")
 	const [complexityValue, setComplexityValue] = useState(0)
-	const [recents, setRecents] = useRecents([])
+	const [recents, setRecents] = useRecents()
 
 	useEffect(() => {
 		if (status !== 200) return
 
 		// Add to recent searches
 		setRecents(slug)
-
-		// Subscribe to events
-		subscribe("searchChange", (e) => setSearchValue(e.detail))
-
-		return () => {
-			unsubscribe("searchChange", (e) => setSearchValue(e.detail))
-		}
 	}, [slug, status])
 
 	// Handle the documentation not found

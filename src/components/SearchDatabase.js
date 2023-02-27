@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react"
 import { openLink } from "@utils/openLink"
 import { useTypewriter } from "@hooks/useTypewriter"
 import useFetch from "@hooks/useFetch"
-import { useLocalStorage } from "@/hooks/useLocalStorage"
+import { useRecents } from "@/hooks/useRecents"
 
 const SearchDatabase = () => {
 	const [input, setInput] = useState("")
@@ -12,7 +12,7 @@ const SearchDatabase = () => {
 	const searchElement = useRef(null)
 	const { word } = useTypewriter(["docker", "git", "yarn", "npm"], 130, 6)
 
-	const [recents, setRecents] = useLocalStorage("recent-searches", [])
+	const [recents, setRecents] = useRecents()
 
 	useEffect(() => {
 		// Focus on search bar
