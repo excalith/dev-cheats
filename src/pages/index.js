@@ -5,7 +5,7 @@ import SearchDatabase from "@/components/SearchDatabase"
 import Alert from "@components/Alert"
 import Footer from "@components/Footer"
 
-export default function Home({ errorMessage: missingCommand }) {
+export default function Home({ missingCommand }) {
 	return (
 		<>
 			<SEO

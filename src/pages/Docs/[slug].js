@@ -36,47 +36,43 @@ const Docs = ({ slug, data, status }) => {
 	const [search, setSearch] = useState("")
 	const [complexity, setComplexity] = useState(0)
 
-	// Subscribe to events
 	useEffect(() => {
-		subscribe("complexityChange", (e) => setComplexity(e.detail))
-		subscribe("searchChange", (e) => setSearch(e.detail))
+		if (status !== 200) return
 
 		// Add to recent searches
-		if (status === 200) addToRecents(slug)
+		addToRecents(slug)
+
+		// Subscribe to events
+		subscribe("complexityChange", (e) => setComplexity(e.detail))
+		subscribe("searchChange", (e) => setSearch(e.detail))
 
 		return () => {
 			unsubscribe("complexityChange", (e) => setComplexity(e.detail))
 			unsubscribe("searchChange", (e) => setSearch(e.detail))
 		}
-	}, [])
+	}, [slug, status])
 
-	// Handle the error state
-	if (status !== 200) {
-		return <Home missingCommand={slug} />
-	}
+	// Handle the documentation not found
+	if (status !== 200) return <Home missingCommand={slug} />
 
 	// Handle the loading state
 	if (!data) return <Loader />
 
-	// Parse the data
-	let meta = data.meta
-	let categories = data.categories
-	let complexityOptions = data.complexity
-	let contribs = data.meta.contribs
-
 	return (
 		<main className="container px-2 mx-auto">
 			<SEO
-				title={meta.title}
-				description={"Commands And Usage Examples For " + meta.title}
+				title={data.meta.title}
+				description={
+					"Commands And Usage Examples For " + data.meta.title
+				}
 			/>
 
 			<Search
 				slug={slug}
-				title={meta.title}
-				complexityOptions={complexityOptions}
+				title={data.meta.title}
+				complexityOptions={data.complexityOptions}
 			/>
-			{categories.map((category, index) => (
+			{data.categories.map((category, index) => (
 				<section key={index}>
 					{category.commands.map((command, i) => (
 						<Card
@@ -91,7 +87,7 @@ const Docs = ({ slug, data, status }) => {
 				</section>
 			))}
 
-			<Footer style="w-full pb-5 pt-5" contribs={contribs} />
+			<Footer style="w-full pb-5 pt-5" contribs={data.meta.contribs} />
 		</main>
 	)
 }
