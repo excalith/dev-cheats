@@ -9,7 +9,7 @@ const SearchList = () => {
 	const [isRecents, setIsRecents] = useState(false)
 	const [data, setData] = useState(null)
 	const searchElement = useRef(null)
-	const { word } = useTypewriter(["git", "yarn", "npm"], 130, 6)
+	const { word } = useTypewriter(["docker", "git", "yarn", "npm"], 130, 6)
 
 	useEffect(() => {
 		fetch("/api/v1/docs/")

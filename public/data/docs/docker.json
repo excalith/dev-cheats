@@ -1,0 +1,353 @@
+{
+	"meta": {
+		"title": "Docker",
+		"contribs": []
+	},
+	"complexity": ["Basic", "Normal", "Advanced"],
+	"categories": [
+		{
+			"name": "Hub",
+			"color": "green",
+			"commands": [
+				{
+					"name": "login",
+					"description": "Logins to Docker",
+					"keywords": "login",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "docker login -u <username>",
+							"description": "Logins to Docker with username"
+						}
+					]
+				},
+				{
+					"name": "search",
+					"description": "Searches Docker Hub for an image",
+					"keywords": "search",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "docker search <image_name>",
+							"description": "Searches Docker Hub for an image"
+						}
+					]
+				},
+				{
+					"name": "pull",
+					"description": "Pull an image from a Docker Hub",
+					"keywords": "pull",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "docker pull <image_name>",
+							"description": "Pull an image from a Docker Hub"
+						}
+					]
+				},
+				{
+					"name": "push",
+					"description": "Publish an image to Docker Hub",
+					"keywords": "push",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "docker push <username>/<image_name>",
+							"description": "Publish an image to Docker Hub"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Containers",
+			"color": "cyan",
+			"commands": [
+				{
+					"name": "run",
+					"description": "Runs a container from an image",
+					"keywords": "run",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "docker run -d <image_name>",
+							"description": "Run a container in the background"
+						},
+						{
+							"complexity": 0,
+							"code": "docker run --name <container_name> <image_name>",
+							"description": "Create and run a container from an image, with a custom name"
+						},
+						{
+							"complexity": 1,
+							"code": "docker run -p <host_port>:<container_port> <image_name>",
+							"description": "Run a container with and maps the container’s port(s) to the host"
+						},
+						{
+							"complexity": 1,
+							"code": "docker run --host-name <host_name> <image_name>",
+							"description": "Assigns a host name to the container"
+						},
+						{
+							"complexity": 2,
+							"code": "docker run --add-host <host_name>:<ip> <image_name>",
+							"description": "Addsa DNS entry to the container"
+						}
+					]
+				},
+				{
+					"name": "start",
+					"description": "Starts and existing container",
+					"keywords": "start",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "docker start <container_name> (or <container-id>)",
+							"description": "Starts an existing container"
+						}
+					]
+				},
+				{
+					"name": "stop",
+					"description": "Stops and existing container",
+					"keywords": "stop",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "docker stop <container_name> (or <container-id>)",
+							"description": "Stops and existing container"
+						}
+					]
+				},
+				{
+					"name": "rename",
+					"description": "Renames a container",
+					"keywords": "rename",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker rename <container_name> <new_container_name>",
+							"description": "Renames container name int a new one"
+						}
+					]
+				},
+				{
+					"name": "rm",
+					"description": "Removes a stopped container",
+					"keywords": "rm",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker rm <container_name>",
+							"description": "Removes a stopped container"
+						},
+						{
+							"complexity": 1,
+							"code": "docker rm -f <container_name>",
+							"description": "Removes a container even if it is running"
+						}
+					]
+				},
+				{
+					"name": "exec",
+					"description": "Opens a shell inside a running container",
+					"keywords": "exec",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "docker exec -it <container_name> sh",
+							"description": "Opens a shell inside a running container"
+						}
+					]
+				},
+				{
+					"name": "inspect",
+					"description": "Inspects a running container",
+					"keywords": "inspect",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker inspect <container_name> (or <container_id>)",
+							"description": "Inspects a running container"
+						}
+					]
+				},
+				{
+					"name": "container",
+					"description": "Shows container information",
+					"keywords": "container",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "docker container stats",
+							"description": "Shows resource usage stats"
+						},
+						{
+							"complexity": 1,
+							"code": "docker container prune",
+							"description": "Deletes stopped containers"
+						}
+					]
+				},
+				{
+					"name": "top",
+					"description": "Shows running processes inside a container",
+					"keywords": "top",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker top <container_name>",
+							"description": "Shows running processes inside a container"
+						}
+					]
+				},
+				{
+					"name": "port",
+					"description": "Shows mapped ports of a container",
+					"keywords": "port",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker port <container_name>",
+							"description": "Shows mapped ports of a container"
+						}
+					]
+				},
+				{
+					"name": "diff",
+					"description": "Shows all modified files within container",
+					"keywords": "diff",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker diff <container_name>",
+							"description": "Shows all modified files within container"
+						}
+					]
+				},
+				{
+					"name": "ps",
+					"description": "Lists containers",
+					"keywords": "ps",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker ps",
+							"description": "List currently running container"
+						},
+						{
+							"complexity": 1,
+							"code": "docker ps --all",
+							"description": "List all containers (running and stopped)"
+						}
+					]
+				},
+				{
+					"name": "logs",
+					"description": "Fetch and follow the logs of a container",
+					"keywords": "logs",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker logs -f <container_name>",
+							"description": "Fetch and follow the logs of a container"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"color": "orange",
+			"commands": [
+				{
+					"name": "images",
+					"description": "Lists local images",
+					"keywords": "images",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "docker images",
+							"description": "Lists local images"
+						}
+					]
+				},
+				{
+					"name": "build",
+					"description": "Builds an image from a Dockerfile",
+					"keywords": "build",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker build -t <image_name>",
+							"description": "Build an Image from a Dockerfile"
+						},
+						{
+							"complexity": 1,
+							"code": "docker build -t <image_name> . –no-cache",
+							"description": "Build an Image from a Dockerfile without the cache"
+						}
+					]
+				},
+				{
+					"name": "save",
+					"description": "Saves an image to .tar file",
+					"keywords": "save",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker save <image_name> > <image_name>.tar",
+							"description": "Saves an image to .tar file"
+						}
+					]
+				},
+				{
+					"name": "load",
+					"description": "Loads an image from .tar file",
+					"keywords": "load",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "docker load -i <image_name>.tar",
+							"description": "Loads an image from .tar file"
+						}
+					]
+				},
+				{
+					"name": "rmi",
+					"description": "Deletes an Image",
+					"keywords": "rmi",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "docker rmi <image_name>",
+							"description": "Deletes an Image"
+						}
+					]
+				}
+			]
+		}
+	]
+}
