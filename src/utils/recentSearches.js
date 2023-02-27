@@ -27,7 +27,7 @@ function addToRecents(key) {
 		recents.splice(maxRecentSearches)
 	}
 
-	saveCookie("recent-searches", JSON.stringify(recents))
+	setStorage("recent-searches", JSON.stringify(recents))
 }
 
 function getAllRecents() {
@@ -41,13 +41,6 @@ function getAllRecents() {
 
 function clearRecents() {
 	deleteStorage("recent-searches")
-}
-
-function saveCookie(name, data) {
-	setStorage(name, data, {
-		secure: true,
-		sameSite: "strict"
-	})
 }
 
 export { addToRecents, getAllRecents, clearRecents }
