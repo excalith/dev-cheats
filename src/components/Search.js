@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react"
-import { publish } from "../utils/event"
-import { openLink } from "@/utils/openLink"
-import { hasStorage, setStorage, getStorage } from "@/utils/storage"
+import { publish } from "@utils/event"
+import { openLink } from "@utils/openLink"
+import { hasStorage, setStorage, getStorage } from "@utils/storage"
 
-const Search = ({ slug, complexityOptions }) => {
+const Search = ({ slug, title, complexityOptions }) => {
 	const searchElement = useRef(null)
 	const complexityElement = useRef(null)
 
@@ -53,7 +53,7 @@ const Search = ({ slug, complexityOptions }) => {
 				className="h-full px-4 font-sans text-xl text-center rounded-lg outline-none grow bg-background"
 				type="text"
 				onChange={changeSearch}
-				placeholder="Search"
+				placeholder={`Search ${title} Commands`}
 				autoFocus
 				ref={searchElement}
 			/>

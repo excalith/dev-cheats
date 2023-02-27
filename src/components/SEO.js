@@ -17,16 +17,16 @@ const SEO = ({ title, description }) => {
 				content={`${url}/api/v1/og?desc=${description}`}
 			/>
 
-			<meta charset="UTF-8" />
+			<meta charSet="UTF-8" />
 			<meta
 				name="viewport"
 				content="width=device-width, initial-scale=1.0"
 			/>
 
-			<meta itemprop="name" content={`${title} • Dev Cheats`} />
-			<meta itemprop="description" content={description} />
+			<meta itemProp="name" content={`${title} • Dev Cheats`} />
+			<meta itemProp="description" content={description} />
 			<meta
-				itemprop="image"
+				itemProp="image"
 				content={`${url}/api/v1/og?desc=${description}`}
 			/>
 

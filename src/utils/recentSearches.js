@@ -3,7 +3,7 @@ import {
 	getStorage,
 	setStorage,
 	deleteStorage
-} from "@/utils/storage"
+} from "@utils/storage"
 
 function addToRecents(key) {
 	const maxRecentSearches = 5

@@ -1,23 +1,18 @@
 import React, { useState, useEffect, useRef } from "react"
-import { openLink } from "@/utils/openLink"
-import { getAllRecents, clearRecents } from "@/utils/recentSearches"
-import { useTypewriter } from "@/hooks/useTypewriter"
+import { openLink } from "@utils/openLink"
+import { getAllRecents, clearRecents } from "@utils/recentSearches"
+import { useTypewriter } from "@hooks/useTypewriter"
+import useFetch from "@hooks/useFetch"
 
-const SearchList = () => {
+const SearchDatabase = () => {
 	const [input, setInput] = useState("")
 	const [suggestions, setSuggestions] = useState([])
 	const [isRecents, setIsRecents] = useState(false)
-	const [data, setData] = useState(null)
+	const [data] = useFetch("/api/v1/docs/")
 	const searchElement = useRef(null)
 	const { word } = useTypewriter(["docker", "git", "yarn", "npm"], 130, 6)
 
 	useEffect(() => {
-		fetch("/api/v1/docs/")
-			.then((res) => res.json())
-			.then((data) => {
-				setData(data)
-			})
-
 		// Focus on search bar
 		if (searchElement.current) {
 			searchElement.current.focus()
@@ -164,4 +159,4 @@ const SearchList = () => {
 	)
 }
 
-export default SearchList
+export default SearchDatabase

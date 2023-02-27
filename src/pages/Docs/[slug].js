@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react"
 import absoluteUrl from "next-absolute-url"
 import axios from "axios"
-import { addToRecents } from "@/utils/recentSearches"
-import { subscribe, unsubscribe } from "@/utils/event"
-import SEO from "@/components/SEO"
-import Loader from "@/components/Loader"
-import Search from "@/components/Search"
-import Card from "@/components/Card"
-import Footer from "@/components/Footer"
+import { addToRecents } from "@utils/recentSearches"
+import { subscribe, unsubscribe } from "@utils/event"
+import SEO from "@components/SEO"
+import Loader from "@components/Loader"
+import Search from "@components/Search"
+import Card from "@components/Card"
+import Footer from "@components/Footer"
 import Home from "@/pages"
 
 export async function getServerSideProps({ req, params }) {
@@ -52,7 +52,7 @@ const Docs = ({ slug, data, status }) => {
 
 	// Handle the error state
 	if (status !== 200) {
-		return <Home errorMessage={slug} />
+		return <Home missingCommand={slug} />
 	}
 
 	// Handle the loading state
@@ -65,13 +65,17 @@ const Docs = ({ slug, data, status }) => {
 	let contribs = data.meta.contribs
 
 	return (
-		<main className="container mx-auto">
+		<main className="container px-2 mx-auto">
 			<SEO
 				title={meta.title}
 				description={"Commands And Usage Examples For " + meta.title}
 			/>
 
-			<Search slug={slug} complexityOptions={complexityOptions} />
+			<Search
+				slug={slug}
+				title={meta.title}
+				complexityOptions={complexityOptions}
+			/>
 			{categories.map((category, index) => (
 				<section key={index}>
 					{category.commands.map((command, i) => (
