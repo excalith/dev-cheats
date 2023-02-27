@@ -1,0 +1,39 @@
+{
+	"meta": {
+		"title": "Test",
+		"complexity": ["Basic", "Normal", "Advanced"],
+		"contribs": []
+	},
+	"categories": [
+		{
+			"name": "Create",
+			"color": "green",
+			"commands": [
+				{
+					"name": "init",
+					"description": "Initializes a package.json file",
+					"url": "https://classic.yarnpkg.com/en/docs/cli/init",
+					"keywords": "create init",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "basic",
+							"description": "Initializes an interactive session to create a package.json file"
+						},
+						{
+							"complexity": 1,
+							"code": "normal",
+							"description": "Creates a package.json file with default values"
+						},
+						{
+							"complexity": 2,
+							"code": "advanced",
+							"description": "Creates a package.json file with default values and sets the private property to true"
+						}
+					]
+				}
+			]
+		}
+	]
+}

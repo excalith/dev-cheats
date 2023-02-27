@@ -66,7 +66,7 @@ export async function validateDocument(document) {
 	// META
 	if (data.meta.title === "") errors.push("No document title provided")
 	let complexityCount = 0
-	if (data.complexity) complexityCount = data.complexity.length
+	if (data.meta.complexity) complexityCount = data.meta.complexity.length
 
 	// CATEGORIES
 	data.categories.map((category) => {

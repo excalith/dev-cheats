@@ -1,9 +1,9 @@
 {
 	"meta": {
 		"title": "NPM",
+		"complexity": ["Basic", "Normal", "Advanced"],
 		"contribs": []
 	},
-	"complexity": ["Basic", "Normal", "Advanced"],
 	"categories": [
 		{
 			"name": "Create",

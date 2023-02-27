@@ -33,8 +33,8 @@ export async function getServerSideProps({ req, params }) {
 
 const Docs = ({ slug, data, status }) => {
 	// States
-	const [search, setSearch] = useState("")
-	const [complexity, setComplexity] = useState(0)
+	const [searchValue, setSearchValue] = useState("")
+	const [complexityValue, setComplexityValue] = useState(0)
 
 	useEffect(() => {
 		if (status !== 200) return
@@ -43,12 +43,10 @@ const Docs = ({ slug, data, status }) => {
 		addToRecents(slug)
 
 		// Subscribe to events
-		subscribe("complexityChange", (e) => setComplexity(e.detail))
-		subscribe("searchChange", (e) => setSearch(e.detail))
+		subscribe("searchChange", (e) => setSearchValue(e.detail))
 
 		return () => {
-			unsubscribe("complexityChange", (e) => setComplexity(e.detail))
-			unsubscribe("searchChange", (e) => setSearch(e.detail))
+			unsubscribe("searchChange", (e) => setSearchValue(e.detail))
 		}
 	}, [slug, status])
 
@@ -58,7 +56,13 @@ const Docs = ({ slug, data, status }) => {
 	// Handle the loading state
 	if (!data) return <Loader />
 
-	console.log(data.complexity)
+	const handleComplexityChange = (complexityValue) => {
+		setComplexityValue(complexityValue)
+	}
+
+	const handleSearchChange = (searchValue) => {
+		setSearchValue(searchValue)
+	}
 
 	return (
 		<main className="container px-2 mx-auto">
@@ -71,8 +75,9 @@ const Docs = ({ slug, data, status }) => {
 
 			<Search
 				slug={slug}
-				title={data.meta.title}
-				complexityOptions={data.complexity}
+				metadata={data.meta}
+				onSearchChange={handleSearchChange}
+				onComplexityChange={handleComplexityChange}
 			/>
 			{data.categories.map((category, index) => (
 				<section key={index}>
@@ -82,8 +87,8 @@ const Docs = ({ slug, data, status }) => {
 							data={command}
 							category={category.name}
 							accent={category.color}
-							query={search}
-							complexity={complexity}
+							query={searchValue}
+							complexity={complexityValue}
 						/>
 					))}
 				</section>
