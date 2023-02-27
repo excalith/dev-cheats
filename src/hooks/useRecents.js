@@ -1,39 +1,40 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
-const recentSearchesLimit = 5
 const recentSearchesKey = "recent-searches"
+const recentSearchesLimit = 5
 
-function getRecentSearches(defaultValue) {
-	if (typeof window !== "undefined") {
-		const saved = localStorage.getItem(recentSearchesKey)
-		const initial = saved !== null ? JSON.parse(saved) : [defaultValue]
-		return initial
-	}
-
-	return defaultValue
-}
-
-export const useRecents = (defaultValue) => {
-	const [value, setValue] = useState(() => {
-		return getRecentSearches(defaultValue)
+export const useRecents = () => {
+	const [storedValue, setStoredValue] = useState(() => {
+		try {
+			const item = window.localStorage.getItem(recentSearchesKey)
+			return item ? JSON.parse(item) : []
+		} catch (error) {
+			console.error(error)
+			return []
+		}
 	})
 
-	useEffect(() => {
-		let recents = getRecentSearches(defaultValue)
-		const index = value.indexOf(value)
+	const setValue = (value) => {
+		try {
+			const index = storedValue.indexOf(value)
+			let recents = [...storedValue]
 
-		if (index !== -1) {
-			recents.splice(index, 1)
+			if (index !== -1) {
+				recents.splice(index, 1)
+			}
+
+			recents.unshift(value)
+
+			if (recents.length > recentSearchesLimit) {
+				recents.splice(recentSearchesLimit)
+			}
+
+			setStoredValue(recents)
+			localStorage.setItem(recentSearchesKey, JSON.stringify(recents))
+		} catch (error) {
+			console.error(error)
 		}
+	}
 
-		recents.unshift(value)
-
-		if (recents.length > recentSearchesLimit) {
-			recents.splice(recentSearchesLimit)
-		}
-
-		localStorage.setItem(recentSearchesKey, JSON.stringify(recents))
-	}, [defaultValue, value])
-
-	return [value, setValue]
+	return [storedValue, setValue]
 }
