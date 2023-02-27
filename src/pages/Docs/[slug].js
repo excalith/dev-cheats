@@ -58,6 +58,8 @@ const Docs = ({ slug, data, status }) => {
 	// Handle the loading state
 	if (!data) return <Loader />
 
+	console.log(data.complexity)
+
 	return (
 		<main className="container px-2 mx-auto">
 			<SEO
@@ -70,7 +72,7 @@ const Docs = ({ slug, data, status }) => {
 			<Search
 				slug={slug}
 				title={data.meta.title}
-				complexityOptions={data.complexityOptions}
+				complexityOptions={data.complexity}
 			/>
 			{data.categories.map((category, index) => (
 				<section key={index}>
