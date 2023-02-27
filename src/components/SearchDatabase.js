@@ -145,7 +145,7 @@ const SearchDatabase = () => {
 								You can request it from{" "}
 								<a
 									className="text-blue"
-									href="https://github.com/excalith/dev-cheats/issues/new?assignees=&labels=documentation%2C+enhancement&template=documentation-request.md&title=%5BDOCS%5D+"
+									href={`https://github.com/excalith/dev-cheats/issues/new?assignees=&labels=documentation%2C+enhancement&template=documentation-request.md&title=%5BDOCS%5D+Request:%20${input}`}
 									target="_blank"
 									rel="noopener noreferrer nofollow">
 									here
