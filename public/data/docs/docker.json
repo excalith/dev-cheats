@@ -1,9 +1,9 @@
 {
 	"meta": {
 		"title": "Docker",
+		"complexity": ["Basic", "Normal", "Advanced"],
 		"contribs": []
 	},
-	"complexity": ["Basic", "Normal", "Advanced"],
 	"categories": [
 		{
 			"name": "Hub",
@@ -90,7 +90,7 @@
 						},
 						{
 							"complexity": 1,
-							"code": "docker run --host-name <host_name> <image_name>",
+							"code": "docker run --hostname <host_name> <image_name>",
 							"description": "Assigns a host name to the container"
 						},
 						{

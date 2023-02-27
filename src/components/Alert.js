@@ -23,9 +23,11 @@ const Alert = ({ message, type }) => {
 	}, [type])
 
 	return (
-		<div
-			className={`w-full p-4 rounded my-4 border-1 text-center ${color}`}>
-			{message}
+		<div className="px-4">
+			<div
+				className={`w-full p-4 rounded my-4 border-1 text-center ${color}`}>
+				{message}
+			</div>
 		</div>
 	)
 }

@@ -1,23 +1,20 @@
 import React, { useState, useEffect, useRef } from "react"
-import { openLink } from "@/utils/openLink"
-import { getAllRecents, clearRecents } from "@/utils/recentSearches"
-import { useTypewriter } from "@/hooks/useTypewriter"
+import { openLink } from "@utils/openLink"
+import { useTypewriter } from "@hooks/useTypewriter"
+import useFetch from "@hooks/useFetch"
+import { useRecents } from "@/hooks/useRecents"
 
-const SearchList = () => {
+const SearchDatabase = () => {
 	const [input, setInput] = useState("")
 	const [suggestions, setSuggestions] = useState([])
 	const [isRecents, setIsRecents] = useState(false)
-	const [data, setData] = useState(null)
+	const [data] = useFetch("/api/v1/docs/")
 	const searchElement = useRef(null)
 	const { word } = useTypewriter(["docker", "git", "yarn", "npm"], 130, 6)
 
-	useEffect(() => {
-		fetch("/api/v1/docs/")
-			.then((res) => res.json())
-			.then((data) => {
-				setData(data)
-			})
+	const [recents, setRecents] = useRecents()
 
+	useEffect(() => {
 		// Focus on search bar
 		if (searchElement.current) {
 			searchElement.current.focus()
@@ -88,12 +85,12 @@ const SearchList = () => {
 	}
 
 	const getRecents = () => {
-		setSuggestions(getAllRecents())
+		setSuggestions(recents)
 		setIsRecents(true)
 	}
 
 	const handleClearRecents = () => {
-		clearRecents()
+		setRecents([])
 		clearSearch()
 	}
 
@@ -150,7 +147,7 @@ const SearchList = () => {
 								You can request it from{" "}
 								<a
 									className="text-blue"
-									href="https://github.com/excalith/dev-cheats/issues/new?assignees=&labels=documentation%2C+enhancement&template=documentation-request.md&title=%5BDOCS%5D+"
+									href={`https://github.com/excalith/dev-cheats/issues/new?assignees=&labels=documentation%2C+enhancement&template=documentation-request.md&title=%5BDOCS%5D+Request:%20${input}`}
 									target="_blank"
 									rel="noopener noreferrer nofollow">
 									here
@@ -164,4 +161,4 @@ const SearchList = () => {
 	)
 }
 
-export default SearchList
+export default SearchDatabase

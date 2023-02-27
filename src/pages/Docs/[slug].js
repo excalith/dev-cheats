@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react"
 import absoluteUrl from "next-absolute-url"
 import axios from "axios"
-import { addToRecents } from "@/utils/recentSearches"
-import { subscribe, unsubscribe } from "@/utils/event"
-import SEO from "@/components/SEO"
-import Loader from "@/components/Loader"
-import Search from "@/components/Search"
-import Card from "@/components/Card"
-import Footer from "@/components/Footer"
+import { useRecents } from "@/hooks/useRecents"
+import SEO from "@components/SEO"
+import Loader from "@components/Loader"
+import Search from "@components/Search"
+import Card from "@components/Card"
+import Footer from "@components/Footer"
 import Home from "@/pages"
 
 export async function getServerSideProps({ req, params }) {
@@ -33,46 +32,47 @@ export async function getServerSideProps({ req, params }) {
 
 const Docs = ({ slug, data, status }) => {
 	// States
-	const [search, setSearch] = useState("")
-	const [complexity, setComplexity] = useState(0)
+	const [searchValue, setSearchValue] = useState("")
+	const [complexityValue, setComplexityValue] = useState(0)
+	const [recents, setRecents] = useRecents()
 
-	// Subscribe to events
 	useEffect(() => {
-		subscribe("complexityChange", (e) => setComplexity(e.detail))
-		subscribe("searchChange", (e) => setSearch(e.detail))
+		if (status !== 200) return
 
 		// Add to recent searches
-		if (status === 200) addToRecents(slug)
+		setRecents(slug)
+	}, [slug, status])
 
-		return () => {
-			unsubscribe("complexityChange", (e) => setComplexity(e.detail))
-			unsubscribe("searchChange", (e) => setSearch(e.detail))
-		}
-	}, [])
-
-	// Handle the error state
-	if (status !== 200) {
-		return <Home errorMessage={slug} />
-	}
+	// Handle the documentation not found
+	if (status !== 200) return <Home missingCommand={slug} />
 
 	// Handle the loading state
 	if (!data) return <Loader />
 
-	// Parse the data
-	let meta = data.meta
-	let categories = data.categories
-	let complexityOptions = data.complexity
-	let contribs = data.meta.contribs
+	const handleComplexityChange = (complexityValue) => {
+		setComplexityValue(complexityValue)
+	}
+
+	const handleSearchChange = (searchValue) => {
+		setSearchValue(searchValue)
+	}
 
 	return (
-		<main className="container mx-auto">
+		<main className="container px-2 mx-auto">
 			<SEO
-				title={meta.title}
-				description={"Commands And Usage Examples For " + meta.title}
+				title={data.meta.title}
+				description={
+					"Commands And Usage Examples For " + data.meta.title
+				}
 			/>
 
-			<Search slug={slug} complexityOptions={complexityOptions} />
-			{categories.map((category, index) => (
+			<Search
+				slug={slug}
+				metadata={data.meta}
+				onSearchChange={handleSearchChange}
+				onComplexityChange={handleComplexityChange}
+			/>
+			{data.categories.map((category, index) => (
 				<section key={index}>
 					{category.commands.map((command, i) => (
 						<Card
@@ -80,14 +80,14 @@ const Docs = ({ slug, data, status }) => {
 							data={command}
 							category={category.name}
 							accent={category.color}
-							query={search}
-							complexity={complexity}
+							query={searchValue}
+							complexity={complexityValue}
 						/>
 					))}
 				</section>
 			))}
 
-			<Footer style="w-full pb-5 pt-5" contribs={contribs} />
+			<Footer style="w-full pb-5 pt-5" contribs={data.meta.contribs} />
 		</main>
 	)
 }
