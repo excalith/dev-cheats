@@ -3,13 +3,15 @@ import Head from "next/head"
 const url = "https://dev-cheats.vercel.app"
 
 const SEO = ({ title, description, additionalKeywords, imageText }) => {
+	const keywords = additionalKeywords ? additionalKeywords : ""
+
 	return (
 		<Head>
 			<title>{`${title} • Dev Cheats`}</title>
 			<meta name="description" content={description} />
 			<meta
 				name="keywords"
-				content={`developer command tool cheat sheet documentation example usage ${additionalKeywords}`}
+				content={`developer command tool cheat sheet documentation example usage ${keywords}`}
 			/>
 			<meta name="author" content="Can Cellek (excalith)" />
 			<meta
