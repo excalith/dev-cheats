@@ -1,7 +1,5 @@
 name: Test Dev Cheats
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 jobs:
