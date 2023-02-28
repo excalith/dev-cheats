@@ -18,7 +18,7 @@ const SEO = ({ title, description, additionalKeywords, imageText }) => {
 					imageText ? imageText : description
 				}`}
 			/>
-
+			<meta name="robots" content="all" />
 			<meta charSet="UTF-8" />
 			<meta
 				name="viewport"
