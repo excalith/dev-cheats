@@ -2,14 +2,14 @@ import Head from "next/head"
 
 const url = "https://dev-cheats.vercel.app"
 
-const SEO = ({ title, description, imageText }) => {
+const SEO = ({ title, description, additionalKeywords, imageText }) => {
 	return (
 		<Head>
 			<title>{`${title} • Dev Cheats`}</title>
 			<meta name="description" content={description} />
 			<meta
 				name="keywords"
-				content="developer cheat sheet command documentation example usage"
+				content={`developer command tool cheat sheet documentation example usage ${additionalKeywords}`}
 			/>
 			<meta name="author" content="Can Cellek (excalith)" />
 			<meta
@@ -46,6 +46,13 @@ const SEO = ({ title, description, imageText }) => {
 			/>
 			<meta
 				property="og:image"
+				content={`${url}/api/v1/og?desc=${
+					imageText ? imageText : description
+				}`}
+				key="image"
+			/>
+			<meta
+				property="og:image:secure_url"
 				content={`${url}/api/v1/og?desc=${
 					imageText ? imageText : description
 				}`}

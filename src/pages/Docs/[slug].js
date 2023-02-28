@@ -64,6 +64,7 @@ const Docs = ({ slug, data, status }) => {
 				description={
 					"Commands and usage examples for " + data.meta.title
 				}
+				additionalKeywords={slug}
 			/>
 
 			<Search
