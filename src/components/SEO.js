@@ -2,7 +2,7 @@ import Head from "next/head"
 
 const url = "https://dev-cheats.vercel.app"
 
-const SEO = ({ title, description }) => {
+const SEO = ({ title, description, imageText }) => {
 	return (
 		<Head>
 			<title>{`${title} • Dev Cheats`}</title>
@@ -14,7 +14,9 @@ const SEO = ({ title, description }) => {
 			<meta name="author" content="Can Cellek (excalith)" />
 			<meta
 				property="image"
-				content={`${url}/api/v1/og?desc=${description}`}
+				content={`${url}/api/v1/og?desc=${
+					imageText ? imageText : description
+				}`}
 			/>
 
 			<meta charSet="UTF-8" />
@@ -27,7 +29,9 @@ const SEO = ({ title, description }) => {
 			<meta itemProp="description" content={description} />
 			<meta
 				itemProp="image"
-				content={`${url}/api/v1/og?desc=${description}`}
+				content={`${url}/api/v1/og?desc=${
+					imageText ? imageText : description
+				}`}
 			/>
 
 			<meta
@@ -42,7 +46,9 @@ const SEO = ({ title, description }) => {
 			/>
 			<meta
 				property="og:image"
-				content={`${url}/api/v1/og?desc=${description}`}
+				content={`${url}/api/v1/og?desc=${
+					imageText ? imageText : description
+				}`}
 				key="image"
 			/>
 			<meta property="og:type" content="website" />
@@ -60,7 +66,9 @@ const SEO = ({ title, description }) => {
 			/>
 			<meta
 				name="twitter:image"
-				content={`${url}/api/v1/og?desc=${description}`}
+				content={`${url}/api/v1/og?desc=${
+					imageText ? imageText : description
+				}`}
 				key="image"
 			/>
 

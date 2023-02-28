@@ -62,7 +62,7 @@ const Docs = ({ slug, data, status }) => {
 			<SEO
 				title={data.meta.title}
 				description={
-					"Commands And Usage Examples For " + data.meta.title
+					"Commands and usage examples for " + data.meta.title
 				}
 			/>
 
