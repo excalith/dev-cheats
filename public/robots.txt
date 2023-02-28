@@ -1,3 +1,7 @@
+# Block all crawlers for /Docs
+user-agent: *
+disallow: /Docs
+
 # Allow all crawlers
-User-agent: *
-Allow: /
+user-agent: *
+allow: /

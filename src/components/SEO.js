@@ -20,6 +20,10 @@ const SEO = ({ title, description, additionalKeywords, imageText }) => {
 					imageText ? imageText : description
 				}`}
 			/>
+			<meta
+				name="google-site-verification"
+				content="9TFkrsrJN8lZUvCfr6OpAwII9EnuhXWwlwiLMXgOBiI"
+			/>
 			<meta name="robots" content="all" />
 			<meta charSet="UTF-8" />
 			<meta
