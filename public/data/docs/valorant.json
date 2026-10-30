@@ -1,0 +1,329 @@
+{
+	"meta": {
+		"title": "Valorant",
+		"complexity": ["Basic", "Normal", "Advanced"],
+		"contribs": ["hippi345"]
+	},
+	"categories": [
+		{
+			"name": "Movement",
+			"color": "green",
+			"commands": [
+				{
+					"name": "move",
+					"description": "Move your agent",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "movement walk strafe wasd",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "W / A / S / D",
+							"description": "Move forward, left, backward, and right"
+						}
+					]
+				},
+				{
+					"name": "jump",
+					"description": "Jump (hold for higher jumps on some agents)",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "movement jump space",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "Space",
+							"description": "Jump"
+						}
+					]
+				},
+				{
+					"name": "crouch",
+					"description": "Crouch for accuracy and stealth",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "movement crouch ctrl",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "Left Ctrl",
+							"description": "Crouch (toggle or hold depending on settings)"
+						}
+					]
+				},
+				{
+					"name": "walk",
+					"description": "Walk silently without making footstep noise",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "movement walk shift silent",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "Left Shift (hold)",
+							"description": "Walk slowly and quietly"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Combat",
+			"color": "red",
+			"commands": [
+				{
+					"name": "fire",
+					"description": "Fire your equipped weapon",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "combat shoot fire left click",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "Left Mouse Button",
+							"description": "Primary fire"
+						}
+					]
+				},
+				{
+					"name": "aim",
+					"description": "Aim down sights with applicable weapons",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "combat aim ads right click",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "Right Mouse Button",
+							"description": "Alternate fire / aim down sights"
+						}
+					]
+				},
+				{
+					"name": "reload",
+					"description": "Reload the current weapon",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "combat reload r",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "R",
+							"description": "Reload magazine"
+						}
+					]
+				},
+				{
+					"name": "weapons",
+					"description": "Switch between primary, secondary, and melee",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "combat weapon swap 1 2 3",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "1 / 2 / 3",
+							"description": "Equip primary, secondary, or melee"
+						},
+						{
+							"complexity": 1,
+							"code": "Mouse Wheel Up / Down",
+							"description": "Cycle weapons (default binding)"
+						}
+					]
+				},
+				{
+					"name": "drop-spike",
+					"description": "Drop the Spike or your current weapon",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "combat drop spike g",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "G",
+							"description": "Drop equipped weapon or the Spike"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Abilities",
+			"color": "purple",
+			"commands": [
+				{
+					"name": "ability-one",
+					"description": "Use ability slot 1 (signature or first utility)",
+					"url": "https://playvalorant.com/en-us/agents/",
+					"keywords": "abilities utility q",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "Q",
+							"description": "Cast ability bound to slot 1"
+						}
+					]
+				},
+				{
+					"name": "ability-two",
+					"description": "Use ability slot 2",
+					"url": "https://playvalorant.com/en-us/agents/",
+					"keywords": "abilities utility c",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "C",
+							"description": "Cast ability bound to slot 2"
+						}
+					]
+				},
+				{
+					"name": "ability-three",
+					"description": "Use ability slot 3",
+					"url": "https://playvalorant.com/en-us/agents/",
+					"keywords": "abilities utility e",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "E",
+							"description": "Cast ability bound to slot 3"
+						}
+					]
+				},
+				{
+					"name": "ultimate",
+					"description": "Activate your agent ultimate when fully charged",
+					"url": "https://playvalorant.com/en-us/agents/",
+					"keywords": "abilities ultimate x",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "X",
+							"description": "Cast ultimate ability"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Communication",
+			"color": "blue",
+			"commands": [
+				{
+					"name": "ping",
+					"description": "Place a contextual ping on the map or world",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "communication ping z",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "Z (hold) + Left Mouse Button",
+							"description": "Open ping wheel and place a ping"
+						}
+					]
+				},
+				{
+					"name": "voice",
+					"description": "Push-to-talk with teammates",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "communication voice chat v",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "V (hold)",
+							"description": "Team voice chat (push to talk by default)"
+						}
+					]
+				},
+				{
+					"name": "radio",
+					"description": "Use radio command lines",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "communication radio . period",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": ". (period)",
+							"description": "Open radio command menu"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Interface",
+			"color": "orange",
+			"commands": [
+				{
+					"name": "scoreboard",
+					"description": "View match scoreboard and economy",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "interface scoreboard tab",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "Tab (hold)",
+							"description": "Show scoreboard while held"
+						}
+					]
+				},
+				{
+					"name": "buy-menu",
+					"description": "Open the buy menu during buy phases",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "interface buy shop b",
+					"complexity": 0,
+					"usage": [
+						{
+							"complexity": 0,
+							"code": "B",
+							"description": "Open or close the buy menu"
+						}
+					]
+				},
+				{
+					"name": "map",
+					"description": "Toggle the tactical map overlay",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "interface map m cap",
+					"complexity": 1,
+					"usage": [
+						{
+							"complexity": 1,
+							"code": "M",
+							"description": "Toggle expanded map view"
+						},
+						{
+							"complexity": 2,
+							"code": "Caps Lock",
+							"description": "Toggle map zoom level (default binding)"
+						}
+					]
+				},
+				{
+					"name": "inspect",
+					"description": "Inspect your weapon skin",
+					"url": "https://support-valorant.riotgames.com/hc/en-us/articles/360060896393",
+					"keywords": "interface inspect weapon y",
+					"complexity": 2,
+					"usage": [
+						{
+							"complexity": 2,
+							"code": "Y",
+							"description": "Inspect equipped weapon"
+						}
+					]
+				}
+			]
+		}
+	]
+}
